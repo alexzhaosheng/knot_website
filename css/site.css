@@ -1,0 +1,132 @@
+body{
+    font-family: "Verdana";
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.content-column{
+    width: 100%;
+    max-width: 980px;
+    display: inline-block;
+    text-align: left;
+}
+
+.knotStringLeft{
+    position: absolute;
+    height: 180px;
+    top:0px; left:0px;
+
+    background-image: url("../img/banner-fill-left.jpg");
+    background-position: 0px 130px;
+    background-size: 1px 41px;
+    background-repeat: repeat-x;
+}
+.nav-bar{
+    position: absolute;
+    height: 180px;
+    top:0px; right:0px; left:0px;
+
+    color: #1d365d;
+
+    background-image: url("../img/banner-fill-right.jpg");
+    background-position: 0px 130px;
+    background-size: 1px 41px;
+    background-repeat: repeat-x;
+}
+
+.nav-bar .left{
+    float: left;
+}
+
+.nav-bar .knotOnThread{
+    margin-top:130px;
+    margin-left: 40px;
+
+    width: 55px;
+    height: 41px;
+
+    background-image: url("../img/banner.jpg");
+    background-size: 55px 41px;
+}
+
+
+.nav-bar h1{
+    position: absolute;
+    margin-top:50px;
+    margin-left: 30px;
+
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+
+.nav-bar .right{
+    float: right;
+}
+
+.nav-bar a{
+    text-decoration: none;
+    color:#1d365d;
+}
+
+.nav-bar .nav-menu{
+    list-style: none;
+    float: right;
+    margin-top:110px;
+}
+
+.nav-bar .nav-menu li{
+    display: inline-block;
+    margin: 2px 10px;
+    cursor: pointer;
+}
+.nav-bar .nav-menu li:hover{
+    color:#1d365d;
+    text-decoration: underline;
+}
+
+
+.nav-bar .selected{
+    font-weight: bolder;
+}
+
+@media (max-width: 530px) {
+    .knotStringLeft{
+        background-position: 0px 90px;
+    }
+    .nav-bar{
+        background-position: 0px 90px;
+    }
+    .nav-bar .knotOnThread{
+        margin-top:90px;
+    }
+    .nav-bar h1{
+        margin-top: 20px;
+        font-size: 30px;
+    }
+    .nav-bar .nav-menu{
+        position: absolute;
+        float: none;
+        top:65px;
+        right:10px;
+        margin-top:0px;
+    }
+}
+
+.content{
+    text-align: left;
+    margin-top: 180px;
+    min-height: calc(100% - 130px - 30px);
+}
+
+.footer{
+    padding: 0px;
+    background-color: #eeeeee;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    border-top: 1px solid #aaaaaa;
+}
+
+
