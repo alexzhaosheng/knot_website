@@ -17,7 +17,7 @@ body{
     height: 180px;
     top:0px; left:0px;
 
-    background-image: url("../img/banner-fill-left.jpg");
+    background-image: url("../img/banner-fill-left.png");
     background-position: 0px 130px;
     background-size: 1px 41px;
     background-repeat: repeat-x;
@@ -29,10 +29,17 @@ body{
 
     color: #1d365d;
 
-    background-image: url("../img/banner-fill-right.jpg");
+    background-image: url("../img/banner-fill-right.png");
     background-position: 0px 130px;
     background-size: 1px 41px;
     background-repeat: repeat-x;
+}
+
+.nav-bar-background{
+    position: absolute;
+    height: 140px;
+    top:0px; right:0px; left:0px;
+    background-color: #e6e6e6;
 }
 
 .nav-bar .left{
@@ -46,7 +53,7 @@ body{
     width: 55px;
     height: 41px;
 
-    background-image: url("../img/banner.jpg");
+    background-image: url("../img/banner.png");
     background-size: 55px 41px;
 }
 
@@ -102,15 +109,22 @@ body{
         margin-top:90px;
     }
     .nav-bar h1{
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 30px;
     }
     .nav-bar .nav-menu{
         position: absolute;
         float: none;
-        top:65px;
+        top:60px;
         right:10px;
         margin-top:0px;
+    }
+    .nav-bar .nav-menu li{
+        margin: 2px 5px;
+    }
+
+    .nav-bar-background{
+        height: 120px;
     }
 }
 
@@ -122,7 +136,7 @@ body{
 
 .footer{
     padding: 0px;
-    background-color: #eeeeee;
+    background-color: #e6e6e6;
     height: 40px;
     line-height: 40px;
     width: 100%;

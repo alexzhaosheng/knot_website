@@ -1,3 +1,4 @@
+<div class="nav-bar-background"></div>
 <nav class="nav-bar">
     <div class="knotStringLeft"></div>
     <div class="content-column">
