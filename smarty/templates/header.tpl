@@ -14,7 +14,7 @@
             </g>
         </svg>
         <rect class="leftStrings" x="0" y="10.15" height="9.80" style="fill:#1d365d;stroke:none" width="100"></rect>
-        <rect class="leftStrings" x="0" y="20.7" height="9.80" style="fill:#1d365d;stroke:none" width="100"></rect>
+        <rect class="leftStrings" x="0" y="20.98" height="9.70" style="fill:#1d365d;stroke:none" width="100"></rect>
         <rect class="rightStrings" x="500" y="10.4" height="2.6" style="fill:#1d365d;stroke:none" width="100"></rect>
         <rect class="rightStrings" x="500" y="28.0" height="2.6" style="fill:#1d365d;stroke:none" width="100"></rect>
         <rect class="rightStrings" x="500" y="20.0" height="1" style="fill:#1d365d;stroke:none" width="100"></rect>
@@ -32,14 +32,15 @@
                 <li class="home">Home</li>
                 <li class="tutorial">Tutorial</li>
                 <li class="forum"><a href="https://groups.google.com/forum/#!forum/knot_js">Forum</a></li>
-                <li class="GitHub"><a href="https://github.com/woodheadz/knot">GitHub</a></li>
+                <li class="GitHub"><a href="https://github.com/woodheadz/knot.js">GitHub</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <script type="text/javascript">
     function updateSize(){
-        $(".content").css("min-height",  $(window).innerHeight() - $(".nav-bar").height() - $(".footer").height() - 34);
+        $(".content").css("min-height",  $(window).innerHeight() - $(".nav-bar").height() - $(".footer").height() - 51);
+
         var w = $(window).innerWidth();
         $("#knotStringBackground")[0].setAttribute("width", w);
         var knotPos = Math.max(0, (w - 980)/2) + 50;
@@ -58,7 +59,7 @@
     $(window).resize(updateSize);
     $(document).ready(function(){
         updateSize();
-        var currentPage = "{$page}";
-        $(".nav-menu>." + currentPage).addClass("selected");
+
+        $(".nav-menu>." + "{$page}").addClass("selected");
     });
 </script>

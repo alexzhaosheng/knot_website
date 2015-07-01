@@ -1,0 +1,401 @@
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    background-color: #222235;
+    color:whitesmoke;
+
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.selectable{
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.section{
+    background-color: #2d2d37;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 3px black;
+}
+
+.section .divider{
+    border: none;
+    border-top: 1px solid #222222;
+}
+
+.contentSection{
+    position: absolute;
+    top:70px; left:10px; right:10px; bottom: 10px;
+}
+
+.fullScreen{
+    position: absolute;
+    z-index: 100;
+
+    top:0px; left:0px; right: 0px; bottom: 0px;
+    background-color: rgba(0,0,0, 0.8);
+
+    display: none;;
+}
+.fullScreen>div{
+    background-color: #2d2d37;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px black;
+
+    position: absolute;
+    padding: 10px 0px;
+    top:100px;
+    width: 100%;
+    text-align: center;
+}
+
+
+ul{
+    list-style: none;
+    margin: 0px 0px 0px 10px;
+    padding: 0px;
+
+}
+li{
+    padding: 0px;
+    margin: 0px;
+}
+
+@keyframes flash {
+    0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;}
+}
+@-webkit-keyframes flash {
+    0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;}
+}
+
+
+.iconButton{
+    cursor: pointer;
+    margin: auto 2px;
+    color:#39628b;
+}
+.iconButton:active{
+    -webkit-transform: scale(0.9, 0.9);
+    -moz-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    -o-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+}
+.iconButton:hover{
+    text-shadow:  0px 0px 4px #BBBBBB;
+}
+
+.iconButtonChecked{
+    color:#0381ff;
+}
+
+#ownerWindowInfo{
+    display: inline-block;
+    padding: 10px 3px;
+    margin:0px 0px 5px 0px;
+    max-width: calc(100% - 7px);
+    overflow: hidden;
+    white-space: nowrap;
+}
+#viewerSelection{
+    margin-top: 12px;
+    float: right;
+}
+
+
+
+#tabPage .page-headerArea .header{
+    min-width: 60px;
+    min-height: 20px;
+
+    padding: 2px 5px;
+    margin: 0px 1px;
+    color:white;
+
+    display: inline-block;
+
+    cursor: pointer;
+}
+
+#tabPage .page-headerArea{
+    padding-left: 2px;
+}
+#tabPage .page-headerArea .selected{
+    border: 1px solid #2d2d37;
+    border-top-right-radius : 4px;
+    border-top-left-radius : 4px;
+    border-bottom:1px solid #2d2d37;
+    background-color: #2d2d37;
+}
+
+#tabPage .page-contentArea{
+    border-radius: 2px;
+    border:1px solid #333333;
+    margin-top: -1px;
+    padding: 3px;
+    height: calc(100% - 35px);
+    background-color: #2d2d37;
+}
+
+#tabPage .page-contentArea>*{
+    display:none
+}
+#tabPage .page-contentArea .selected{
+    display:block
+}
+
+#tabPage .page-headerArea>.header .Error{
+    color:red;
+    -webkit-animation: flash 1s infinite;-o-animation: flash 1s infinite;animation: flash 1s infinite;
+}
+#tabPage .page-headerArea>.header .Warning{
+    color:yellow;
+}
+#tabPage .page-headerArea>.header .Info{
+    color:#333333;
+}
+
+
+
+#domViewer .divider{
+    bottom: 235px;
+    position: absolute;
+    width: 100%;
+}
+.domViewerToolBar{
+    height: 30px;
+    line-height: 30px;
+}
+
+#searchText{
+    background-color: #333340;
+    color:whitesmoke;
+    border: 1px solid #444444;
+}
+.treeContainer {
+    position: absolute;
+    top:60px;left:5px;right:5px;
+    overflow:auto;
+}
+
+.type-indicator{
+    color:#f36564;
+    font-size: 0.8em;
+}
+
+.highlightMark{
+    color:#eccc4d;
+    -webkit-animation: flash 1s infinite;-o-animation: flash 1s infinite;animation: flash 1s infinite;
+}
+
+.legend{
+    line-height: 25px;
+    color:darkred;
+    float: right;
+    display:inline-block;
+    border: darkgray solid 1px;
+}
+.legend ul{
+    display: inline-block;
+    margin: 0px 5px;
+}
+.legend li{
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+
+.nodeTitle{
+    font-size: 13px;
+    color:#ff6400;
+}
+.knotOption{
+    font-size: 13px;
+    color:#61ce3c;
+
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.emptyNode{
+    opacity: 0.4;
+}
+
+
+#domTree{
+    margin-left: 0px;
+    padding-left: 0px;
+    border-left: none;
+}
+
+#domTree>li .collapsibleContent{
+    margin-left: 16px;
+}
+#domTree>li .nonCollapsibleContent{
+    padding: 4px 0px;
+
+}
+#domTree>li .expander{
+    /*color:#222288;*/
+    display:inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+}
+#domTree>li .locateElementButton{
+    margin-left: 30px;
+}
+
+.knotList{
+    margin: 0px 0px 1px 0px;
+    /*background-color: #ffffee;*/
+    /*border: 1px solid lightgray;*/
+    border-left: none;
+    border-top:none;
+}
+
+.knotList>li{
+    display: block;
+    min-width: 300px;
+    padding: 5px;
+    line-height: 15px
+}
+.knotList>li div{
+    display: inline-block;
+}
+.errorStatusIndicator{
+    color:red;
+    -webkit-animation: flash 1s infinite;-o-animation: flash 1s infinite;animation: flash 1s infinite;
+}
+.knotValue{
+    font-size: 11px;
+    color:white;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.knotValueDirection{
+    margin-right: 0px;
+    margin-left: 20px;
+    color: #DDDDDD;
+}
+
+/* Knot change log */
+
+.knotChangeLog{
+    position: absolute;
+    top:32px;left:0px;right:0px;bottom: 0px;
+    overflow:auto;
+    background-color: #222222;
+}
+.knotChangeLogItemTemplate >div{
+    display: inline-block;
+}
+.knotChangeLogItemTemplate .id{
+    width: 50px;
+    text-align: center;
+}
+
+/* Knot change log expander*/
+#knotChangeLogExpander{
+    position: absolute;
+    left:5px;right:5px;bottom: 5px;
+    border: 1px solid #222222;
+    color:#aaaaaa;
+}
+#knotChangeLogExpander .expanderButton{
+    cursor: pointer;
+    height: 30px;
+    width: calc(100% - 30px);
+    line-height: 30px;
+    display: inline-block;
+}
+#knotChangeLogExpander .expanderButton:hover{
+    background-color: #333333;
+}
+#knotChangeLogExpander .iconButton{
+    color:#aaaaaa;
+}
+.expander-top-collapsed{
+    bottom: 40px;
+}
+.expander-top-expanded{
+    bottom: 350px;
+}
+.expander-bottom-collapsed{
+    height: 30px;
+}
+.expander-bottom-collapsed .knotChangeLog{
+    display: none;
+}
+.expander-bottom-expanded{
+    height: 330px;
+}
+
+
+
+
+/* log window */
+.logContainer {
+    position: absolute;
+    top:5px;left:5px;right:5px;bottom: 5px;
+    overflow-y:auto;
+}
+.logTemplate{
+    font-size: 13px;
+    margin: 3px 0px;
+    padding: 3px;
+    line-height: 20px;
+}
+.logTemplate .level, #logTemplate .time, #logTemplate .at{
+    font-size: 0.9em;
+    color:lightgreen;
+}
+
+.logTemplate .exception{
+    font-size: 0.9em;
+    color:#ffaaaa;
+}
+
+
+
+
+/* JSON viewer */
+.jsonCode{
+    max-height: 500px;
+    overflow: auto;
+    width: 600px;
+    text-align: left;
+    display: inline-block;
+}
+
+
+#loadingMessage{
+    position: absolute;
+    top: 0px; left:0px;right:0px;bottom: 0px;
+    background-color: #222235;
+    color:whitesmoke;
+
+    z-index: 100;
+}
+#loadingMessage>div{
+    position: absolute;
+    top:30%;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
