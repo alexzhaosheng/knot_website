@@ -3,6 +3,7 @@ body{
     margin: 0px;
     padding: 0px;
     text-align: center;
+    min-width: 320px;
 }
 
 .content-column{
@@ -12,49 +13,40 @@ body{
     text-align: left;
 }
 
-.knotStringLeft{
-    position: absolute;
-    height: 180px;
-    top:0px; left:0px;
 
-    background-image: url("../img/banner-fill-left.png");
-    background-position: 0px 130px;
-    background-size: 1px 41px;
-    background-repeat: repeat-x;
+
+.knotDiv{
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+
+    height: 150px;
+    border-bottom: 4px solid #1d365d;
 }
-.nav-bar{
-    position: absolute;
-    height: 180px;
-    top:0px; right:0px; left:0px;
-
-    color: #1d365d;
-
-    background-image: url("../img/banner-fill-right.png");
-    background-position: 0px 130px;
-    background-size: 1px 41px;
-    background-repeat: repeat-x;
+#knotAndString{
+    width: 100%; height:41px;
+    margin-top: 130px;
+    display: none;
 }
 
 .nav-bar-background{
     position: absolute;
-    height: 140px;
+    height: 150px;
     top:0px; right:0px; left:0px;
     background-color: #e6e6e6;
 }
 
-.nav-bar .left{
-    float: left;
+.nav-bar{
+    position: absolute;
+    height: 150px;
+    top:0px; right:0px; left:0px;
+
+    color: #1d365d;
 }
 
-.nav-bar .knotOnThread{
-    margin-top:130px;
-    margin-left: 40px;
 
-    width: 55px;
-    height: 41px;
-
-    background-image: url("../img/banner.png");
-    background-size: 55px 41px;
+.nav-bar .left{
+    float: left;
 }
 
 
@@ -81,6 +73,8 @@ body{
     list-style: none;
     float: right;
     margin-top:110px;
+
+    z-index: 2;
 }
 
 .nav-bar .nav-menu li{
@@ -99,17 +93,16 @@ body{
 }
 
 @media (max-width: 530px) {
-    .knotStringLeft{
-        background-position: 0px 90px;
+    #knotAndString{
+        width: 100%; height:41px;
+        margin-top: 90px;
     }
-    .nav-bar{
-        background-position: 0px 90px;
-    }
-    .nav-bar .knotOnThread{
-        margin-top:90px;
+
+    .knotDiv, .nav-bar{
+        height: 120px;
     }
     .nav-bar h1{
-        margin-top: 10px;
+        margin-top: 0px;
         font-size: 30px;
     }
     .nav-bar .nav-menu{

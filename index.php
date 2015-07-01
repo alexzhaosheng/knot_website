@@ -14,7 +14,7 @@ require_once "comm.php";
     <meta property="og:site_name" content="knot.js" />
     <meta property="og:title" content="knot.js" />
     <meta property="og:type" content="website" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
     <link rel="stylesheet" href="css/site.css">
 
