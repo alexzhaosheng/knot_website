@@ -30,9 +30,11 @@ $(document).ready(function () {
         for(var i=0; i<$(tagSelector).length; i++) {
             (function () {
                 var script = $(tagSelector).eq(i)[0];
-                var data  ={name:typeName, content: script.innerText, title:typeName};
+                var data  ={name:typeName, content: script.outerHTML, title:typeName};
+                var hasTitle = false;
                 if(script.getAttribute("title")) {
                     data.title = script.getAttribute("title");
+                    hasTitle = true;
                 }
                 window.sourceTab.sourceInformation.push(data);
                 if(script.src || script.href) {
@@ -41,6 +43,10 @@ $(document).ready(function () {
                         if(hr.readyState === 4) {
                             if(hr.status === 200) {
                                 data.content  = hr.responseText;
+                                if(!hasTitle){
+                                    var arr = (script.src || script.href).split("/");
+                                    data.title = arr[arr.length-1];
+                                }
                             }
                         }
                     };
@@ -58,6 +64,6 @@ $(document).ready(function () {
 
 document.writeln('<div id="sourceTab" knot-debugger-ignore>'+
     '<div id="codePageTemplate" knot-template-id="codePageTemplate">'+
-        '<pre><code></code></pre>'+
+    '<pre><code></code></pre>'+
     '</div>'+
     '</div>');

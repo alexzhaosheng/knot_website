@@ -26,13 +26,15 @@ body{
     width: 100%; height:41px;
     margin-top: 130px;
     display: none;
+
+    text-shadow: 0 0 5px black;
 }
 
 .nav-bar-background{
     position: absolute;
     height: 150px;
     top:0px; right:0px; left:0px;
-    background-color: #e0e0e0;
+    background-color: #2E2F35;
 }
 
 .nav-bar{
@@ -40,7 +42,8 @@ body{
     height: 150px;
     top:0px; right:0px; left:0px;
 
-    color: #1d365d;
+    /*color: #1d365d;*/
+    color:white;
 }
 
 
@@ -65,7 +68,7 @@ body{
 
 .nav-bar a{
     text-decoration: none;
-    color:#1d365d;
+    color:white;
 }
 
 .nav-bar .nav-menu{
@@ -82,7 +85,6 @@ body{
     cursor: pointer;
 }
 .nav-bar .nav-menu li:hover{
-    color:#1d365d;
     text-decoration: underline;
 }
 
@@ -124,12 +126,7 @@ body{
     text-align: left;
     margin-top: 180px;
     min-height: calc(100% - 130px - 30px - 20px);
-
     padding: 10px;
-
-}
-.content h1{
-    color: #1d365d;
 }
 
 .content p{
@@ -143,22 +140,29 @@ body{
 
 .content ul{
     padding-left: 30px;
+    color:#FB6149;
 }
 .content li{
     margin-left: 0px;
     list-style-type: circle;
+
+}
+.content li p{
+    color: black;
 }
 .content li>ul>li{
     list-style-type: square;
 }
 .content li>ul>li p{
     margin: 2px;
+
 }
 .footer{
     padding: 0px;
-    background-color: #e0e0e0;
-    height: 40px;
-    line-height: 40px;
+    background-color: #2E2F35;
+    color:white;
+    height: 50px;
+    line-height: 50px;
     width: 100%;
     border-top: 1px solid #aaaaaa;
 }
@@ -185,4 +189,26 @@ body{
 
 #debuggerMessage span{
     display: none;
+}
+
+.tutorialMenu{
+    width: 200px;
+    height: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid #dddddd;
+    float:left;
+    position: relative;
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+
+    min-height: 500px;
+}
+.tutorialMenu p{
+    line-height: 16px;
+    font-size: 13px;
+}
+
+.tutorialContent {
+    float: right;
+    width: calc(100% - 220px);
 }

@@ -11,12 +11,13 @@ require_once "comm.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Javascript bind framework knot.js help you." />
     <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />
     <meta property="og:title" content="knot.js" />
     <meta property="og:type" content="website" />
-
     <link rel="stylesheet" href="css/site.css">
+    <link rel="shortcut icon" href="img/knot.ico">
 
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -28,6 +29,20 @@ require_once "comm.php";
     <script type="text/cbs" src="cbs/sourceTab.cbs"></script>
 
     <script src="js/knot.min.js"></script>
+
+<!--    <script src="js/core/PrivateScope.js"></script>-->
+<!--    <script src="js/core/Utility.js"></script>-->
+<!--    <script src="js/core/Deferred.js"></script>-->
+<!--    <script src="js/core/AttachedData.js"></script>-->
+<!--    <script src="js/core/DataObserver.js"></script>-->
+<!--    <script src="js/core/ArrayMonitor.js"></script>-->
+<!--    <script src="js/core/GlobalSymbolHelper.js"></script>-->
+<!--    <script src="js/core/OptionParser.js"></script>-->
+<!--    <script src="js/core/KnotManager.js"></script>-->
+<!--    <script src="js/core/HTMLAPProvider.js"></script>-->
+<!--    <script src="js/core/HTMLKnotBuilder.js"></script>-->
+<!--    <script src="js/core/AddonHTMLAPProvider.js"></script>-->
+<!--    <script src="js/core/KnotInterface.js"></script>-->
 
     <script src="debugger/knot.debug.js"></script>
 
@@ -98,10 +113,10 @@ require_once "comm.php";
                             <p>Free. MIT license</p>
                         </li>
                         <li>
-                            <p>Tiny. 36kb and no dependency.</p>
+                            <p>Tiny. 39kb and no dependency.</p>
                         </li>
                         <li>
-                            <p>Feature-complete. Templates, data validation, multi-binding, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>
+                            <p>Feature-complete. Templates, data validation, multi-binding, single page application, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>
                         </li>
                         <li>
                             <p>Free (again). Interpose anytime you want, never loose control to the framework. Animations? special requirements? no problem!</p>
@@ -109,11 +124,22 @@ require_once "comm.php";
                         <li>
                             <p>Extensible. Easy to write your own reusable extension and bind to almost everything.</p>
                         </li>
+                    </ul>
+                </p>
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>Few other things you need to before using knot.js</b>
+                <p>
+                    <ul>
                         <li>
-                            <p>Maintainable. Source codes come with unit test and documents. And I'll stick with knot.js until it's safe to go on without me.</p>
+                            <p>Source codes come with unit test and documents. And I'll stick with knot.js until it's safe to go on without me.</p>
+                        </li>
+                        <li>
+                            <p>Compatible with IE9+ and the other mainstream browsers. I may add limited support for earlier versions of IE in future, please note this is not a promise.</p>
                         </li>
                     </ul>
-
                 </p>
             </p>
         </li>
@@ -125,10 +151,11 @@ require_once "comm.php";
     /*
         This option bind the value of input with #helloString.text
         The output of #nameInput.value will be combined with "Hello" then set to #helloString.text
-        "[immediately:1]" tell knot to update for each of the key stroke
+        "[immediately:1]" tells knot.js to update for each of the key stroke
      */
     .knot_example input{
-        value[immediately:1] > {return value? ("Hello " + value + " !"): ""} : #helloString.text;
+        value[immediately:1] > {return value? ("Hello " + value + " !"): ""}
+            : #helloString.text;
     }
 </script>
 <div class="knot_example">
