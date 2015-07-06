@@ -1,7 +1,14 @@
 <div class="tutorialMenu">
     <h3>Tutorials</h3>
     <ul>
-        <li class="start"><p>Start</p></li>
+        <li class="tutorial_1"><p><a href="/tutorial/tutorial_1.php">Start</a></p>
+            <ul>
+                <li><p><a href="/tutorial/tutorial_1.php#cbs">CBS Basic</a></p></li>
+                <li><p><a href="/tutorial/tutorial_1.php#example1">Example 1</a></p></li>
+                <li><p><a href="/tutorial/tutorial_1.php#debugger">Debugger</a></p></li>
+                <li><p><a href="/tutorial/tutorial_1.php#more">A few more things</a></p></li>
+            </ul>
+        </li>
         <li><p>Bind to everything</p></li>
         <li><p>Pipes (Data Validator and Converter)</p></li>
         <li><p>Events</p></li>
@@ -14,6 +21,11 @@
         <li><p>Single Page App</p></li>
     </ul>
 </div>
+
+{*<div class="tutorialNavButtons">*}
+    {*<i class="fa fa-arrow-left"></i>*}
+    {*<i class="fa fa-arrow-right"></i>*}
+{*</div>*}
 <script>
-    $(".{$page}").addClass("selected")
+    $(".tutorial_{$page}>p").addClass("selected")
 </script>

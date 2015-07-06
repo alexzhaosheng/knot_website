@@ -31,7 +31,7 @@
         <div class="right">
             <ul class="nav-menu">
                 <li class="home"><a href="/">Home</a></li>
-                <li class="tutorial"><a href="/tutorial/start.php">Tutorial</a></li>
+                <li class="tutorial"><a href="/tutorial/tutorial_1.php">Tutorial</a></li>
                 <li class="forum"><a href="https://groups.google.com/forum/#!forum/knot_js">Forum</a></li>
                 <li class="GitHub"><a href="https://github.com/woodheadz/knot.js">GitHub</a></li>
             </ul>

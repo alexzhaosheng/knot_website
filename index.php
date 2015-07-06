@@ -24,11 +24,16 @@ require_once "comm.php";
 
     <link rel="stylesheet" href="css/github.css">
     <script src="js/highlight.pack.js"></script>
-    <link rel="stylesheet" href="css/tabpage.css">
-    <script type="text/cbs" src="cbs/tabpage.cbs"></script>
-    <script type="text/cbs" src="cbs/sourceTab.cbs"></script>
 
     <script src="js/knot.min.js"></script>
+
+    <link rel="stylesheet" href="css/tabpage.css">
+    <script type="text/cbs" src="cbs/tabpage.pkg.cbs"></script>
+    <script type="text/cbs" src="cbs/sourceTab.pkg.cbs"></script>
+    <script src="js/tabpage.js"></script>
+    <script src="js/sourceTab.js"></script>
+
+
 
 <!--    <script src="js/core/PrivateScope.js"></script>-->
 <!--    <script src="js/core/Utility.js"></script>-->
@@ -58,6 +63,8 @@ require_once "comm.php";
                 return false;
             })
         });
+
+        hljs.initHighlightingOnLoad();
     </script>
 </head>
 <body>
@@ -97,7 +104,7 @@ require_once "comm.php";
             <p>
                 <b>You don't want fight with the framework when something goes wrong.</b>
                 <p>
-                    Just like using DOM inspector to inspect CSS/DOM problems, you can use knot.js debugger to inspect it's binding settings and real time status in almost the same manner.
+                    Just like using DOM inspector to inspect CSS/DOM problems, you can use knot.js debugger to inspect the binding settings and real time statuses in almost the same manner.
                     It turns knot.js into a white box. No more experiences of fighting with framework by tracing error through tons of complex alien source codes.
 
                 </p>
@@ -116,6 +123,9 @@ require_once "comm.php";
                             <p>Tiny. 39kb and no dependency.</p>
                         </li>
                         <li>
+                            <p>Easy. Knot.js follows intuition in all aspects.</p>
+                        </li>
+                        <li>
                             <p>Feature-complete. Templates, data validation, multi-binding, single page application, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>
                         </li>
                         <li>
@@ -130,7 +140,7 @@ require_once "comm.php";
         </li>
         <li>
             <p>
-                <b>Few other things you need to before using knot.js</b>
+                <b>Few other things you need to know before using knot.js</b>
                 <p>
                     <ul>
                         <li>
@@ -147,30 +157,40 @@ require_once "comm.php";
 
 
     <h1>A quick example</h1>
-<script type="text/cbs" class="exampleCBS">
-    /*
-        This option bind the value of input with #helloString.text
-        The output of #nameInput.value will be combined with "Hello" then set to #helloString.text
-        "[immediately:1]" tells knot.js to update for each of the key stroke
-     */
-    .knot_example input{
-        value[immediately:1] > {return value? ("Hello " + value + " !"): ""}
-            : #helloString.text;
-    }
-</script>
-<div class="knot_example">
+    To use knot.js in your webpage is very easy. You just need to add the line below to reference knot.js package, then everything would work.
+    <div class="codeSegment">
+        <pre><code class="html">
+&lt;script src=&quot;js/knot.min.js&quot;&gt;&lt;/script&gt;
+        </code></pre>
+    </div>
 
-    <!-- Clean HTML, all binding logic is in CBS -->
+    <p>
+        Here is a simple example to give you some the first impression of knot.js. You can start to learn more about knot.js with the <a href="tutorial/tutorial_1.php"> tutorials</a>
+    </p>
+    <script type="text/cbs" class="exampleCBS">
+        /*
+            This option bind the value of input with #helloString.text
+            The output of #nameInput.value will be combined with "Hello" then set to #helloString.text
+            "[immediately:1]" tells knot.js to update for each of the key stroke
+         */
+        .knot_example input{
+            value[immediately:1] > {return value? ("Hello " + value + " !"): ""}
+                : #helloString.text;
+        }
+    </script>
+    <div class="knot_example">
 
-    <h3>Greeting from knot.js</h3>
-    <p>
-        <label>Input your name here: </label>
-        <input type="text">
-    </p>
-    <p>
-        <b id="helloString"></b>
-    </p>
-</div>
+        <!-- Clean HTML, all binding logic is in CBS -->
+
+        <h3>Greeting from knot.js</h3>
+        <p>
+            <label>Input your name here: </label>
+            <input type="text">
+        </p>
+        <p>
+            <b id="helloString"></b>
+        </p>
+    </div>
 
     <div id="debuggerMessage">
         <a href="">Active debugger</a>
@@ -178,10 +198,27 @@ require_once "comm.php";
     </div>
 
     <p>
-        Here is the source code. Since this quick example just bind two HTML elements with each other, no javascript is needed.
+        Source code: (Since this quick example just bind two HTML elements with each other, no javascript is needed)
     </p>
-    <script src="js/tabpage.js"></script>
-    <script src="js/sourceTab.js"></script>
+
+    <div id="sourceTab" knot-debugger-ignore  knot-component="SourceTabPage">
+    </div>
+    <script type="text/cbs">
+        #sourceTab{
+            sourceInfo:/sourceCodeInfo.codes
+        }
+    </script>
+    <script>
+        //collect source codes before knot changes the HTML
+        window.sourceCodeInfo = {codes:null};
+
+        window.SourceCodeHelper.collectSourceCodes(
+            [{selector:".knot_example",title:"HTML", type:"html"},
+                {selector:".exampleCBS",title:"CBS", type:"cbs"}],
+            function(res){
+                window.sourceCodeInfo.codes = res;
+            });
+    </script>
 </section>
 
 <?php
