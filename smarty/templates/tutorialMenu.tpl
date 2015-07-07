@@ -4,13 +4,19 @@
         <li class="tutorial_1"><p><a href="/tutorial/tutorial_1.php">Start</a></p>
             <ul>
                 <li><p><a href="/tutorial/tutorial_1.php#cbs">CBS Basic</a></p></li>
-                <li><p><a href="/tutorial/tutorial_1.php#example1">Example 1</a></p></li>
+                <li><p><a href="/tutorial/tutorial_1.php#more">More About CBS</a></p></li>
                 <li><p><a href="/tutorial/tutorial_1.php#debugger">Debugger</a></p></li>
-                <li><p><a href="/tutorial/tutorial_1.php#more">A few more things</a></p></li>
+            </ul>
+        </li>
+        <li class="tutorial_2"><p><a href="/tutorial/tutorial_2.php">Pipe</a></p>
+            <ul>
+                <li><p><a href="/tutorial/tutorial_2.php#converter">Converter</a></p></li>
+                <li><p><a href="/tutorial/tutorial_2.php#validator">Validator And Binding to Error Status</a></p></li>
+                <li><p><a href="/tutorial/tutorial_2.php#multi">Multi-Binding</a></p></li>
+                <li><p><a href="/tutorial/tutorial_2.php#more">More about the embedded functions</a></p></li>
             </ul>
         </li>
         <li><p>Bind to everything</p></li>
-        <li><p>Pipes (Data Validator and Converter)</p></li>
         <li><p>Events</p></li>
         <li><p>Template</p>
             <ul>

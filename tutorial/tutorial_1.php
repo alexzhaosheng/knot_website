@@ -59,24 +59,32 @@ $smarty->display("tutorialMenu.tpl");
 
     <div class="tutorialContent">
         <h2>Start</h2>
-        <h3 id="cbs">CBS</h3>
+        <p> The first thing you need to know about knot.js is CBS.</p>
+        <h3 id="cbs">CBS Basic</h3>
         <p>
-            The first thing you need to know about knot.js is CBS. <br><b>CBS</b> stands for <b>C</b>ascading <b>B</b>inding <b>S</b>heet. It is intended to extract binding logic from your HTML.
-            In addition to the clean HTML, you will also get the structured, clean, easily readable data binding logic that defined in CBS.
+           <b>CBS</b> stands for <b>C</b>ascading <b>B</b>inding <b>S</b>heet. It is intended to extract binding logic from your HTML.
+            In addition to the clean HTML, you also get the structured, clean, easily readable data binding logic that defined in CBS.
         </p>
         <p>
             CBS is not only looks like CSS, it works almost in the same manner as CSS.<br>
             Here's a typical CBS:<br>
             <img src="../img/tutorial/t1_2.png">
             <ul>
+                <li><span>To enable CBS in your page, you just need to add the line below to reference knot.js package:</span>
+                    <div class="codeSegment">
+                        <pre><code class="html"> &lt;script src=&quot;[PATH_TO_KNOTJS]/knot.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </li>
                 <li><span><i>"Selector"</i> is exactly the same as <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="w3schools">CSS selector</a>. </span></li>
-                <li><span><i>Access Point</i> is the description of where you want to bind to the target.</span>
+                <li><span>Each section ends with "<b>;</b>"</span></li>
+                <li><span><i>Access Point</i> is the description of where you want to bind to the target, it depends on the target.</span>
                     <ul>
                         <li><span><i>Left Access Point</i> is on the HTML node selected by <i>"Selector"</i>. it can be any properties on the HTML element, or it can be path like "style.backgroundColor". </span></li>
                         <li><span><i>Right Access Point</i> is on the current <i>Data Context</i>. It can be properties or path of value like "address.postCode".
                                 And it can also be absolute path of value that starts with "/". In this case, knot.js ignores the current <i>Data Context</i> and get the value from the global scope. </span></li>
                     </ul>
                     <span>In the example above, it bind "value" of #userNameInput to the "name" property of current Data Context </span>
+                    <p class="specialHint"><i>Access Point</i> is extendable. The components created by knot.js often support it's own special <i>Access Points</i>. Please check the document of the components that you are using.</p>
                 </li>
                 <li><span>There are four <i>Binding Types</i>:</span>
                     <ul>
@@ -85,7 +93,7 @@ $smarty->display("tutorialMenu.tpl");
                         <li><span><b>"<="</b> is one-way binding. Only left side is updated (when right is changed) </span> </li>
                         <li><span><b>"="</b> is one-off binding. It only updates the left side with the value of right side for the very first time </span> </li>
                     </ul>
-                    * Just use <i>":"</i> if you don't know which type you should use.
+                    <p class="specialHint">Just use <i>":"</i> if you don't know which type you should use.</p>
                 </li>
                 <li><span><i>Data Context</i> is the data you want to bind to the HTML element.</span>
                     <ul>
@@ -97,10 +105,24 @@ $smarty->display("tutorialMenu.tpl");
                         <li><span>If there's no dataContext is specified, a HTML node inherits it's Data Context from the closest DOM ancestors that has dataContext.</span></li>
                     </ul>
                 </li>
+                <li><span>You can embed a CBS declaration into another one by adding "->" before the selector. This makes your CBS looks more structured and easier for reading. Here's example:</span>
+                    <div class="codeSegment">
+                        <pre><code class="css">/*this is the "traditional" way*/
+.example input{value:name;}
+.example .message{text: name;}
+
+/*This is the better way in CBS. They are identical in result*/
+.example{
+    -> input{value:name;};
+    -> .message{text: name;};
+}</code></pre>
+                    </div>
+                </li>
             </ul>
         </p>
 
-        <h3 id="example1">Example 1</h3>
+
+
         <p>Let's take a look at the "Greeting" example again (with a little bit changes to get Javascript involved):</p>
 
         <script type="text/cbs" class="exampleCBS">
@@ -112,21 +134,24 @@ $smarty->display("tutorialMenu.tpl");
                 dataContext: /greetingModel;
             }
 
-            /*
-            Bind "value" of the input to "name".  Since the dataContext is window.greetingModel,
-             it is actually bind to window.greetingModel.name.
-              Another way to do the same thing is to use absolute path:
-              "value[immediately:1]: /greetingModel.name"
-              "[immediately:1]" is the binding option, it tells knot.js to update for each of the
-              key stroke. We'll talk about it later
-              */
-            .knot_example input{
-                value[immediately:1]: name;
-            }
 
-            /*Bind to the textContent of .helloString to show the name after "Hello" */
-            .helloString{
-                text: name;
+            .knot_example {
+                /*
+                    Bind "value" of the input to "name".  Since the dataContext is window.greetingModel,
+                    it is actually bind to window.greetingModel.name.
+                    Another way to do the same thing is to use absolute path:
+                    "value[immediately:1]: /greetingModel.name"
+                    "[immediately:1]" is the binding option, it tells knot.js to update for each of the
+                    key stroke. We'll talk about it later
+                */
+                -> input{
+                    value[immediately:1]: name;
+                };
+
+                /*Bind to the textContent of .helloString to show the name after "Hello" */
+                -> .helloString{
+                    text: name;
+                }
             }
         </script>
         <script type="text/javascript" class="exampleJS">
@@ -151,6 +176,46 @@ $smarty->display("tutorialMenu.tpl");
         <p>The magic is done by the codes below, please check the comments in codes to learn more:</p>
         <div id="codePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
+
+        <h3 id="more">More about CBS</h3>
+        <ul>
+            <li><span>If you want to do something after knot.js is initialized (all bindings have been established), just do it in this way:</span>
+                <div class="codeSegment">
+                    <pre><code class="javascript">Knot.ready(function(succeed, err){
+    if(!succ) {
+        global.alert(err.message);
+        return;
+    }
+    // your own code....
+}</code></pre>
+                </div>
+            </li>
+            <li>
+                <span>You can also put your options onto HTML tag just like how you do it in the other frameworks (I don't think it's a good way, but I agree to disagree). Here's an example:</span>
+                <div class="codeSegment">
+                    <pre><code class="html">&lt;input type=&quot;text&quot; binding=&quot;value:name&quot;&gt;</code></pre>
+                </div>
+            </li>
+            <li>
+                <span>CBS can be put into a stand-along file, and loaded into system by "script" tag with content type "text/cbs". Here's an example:</span>
+                <div class="codeSegment">
+                    <pre><code class="html"> &lt;script type=&quot;text/cbs&quot; src=&quot;cbs/example.cbs&quot;&gt;&lt;/script&gt;</code></pre>
+                </div>
+            </li>
+            <li>
+                <span>Similar to CSS, binding option apply to all HTML elements that selected by <i>Selector</i>. For example, the CBS below will bind the text content
+                    of all of the elements with class "title" to the "title" property of their own <i>Data Context</i> objects.</span>
+                <div class="codeSegment">
+                    <pre><code class="css">.title{ text: title }</code></pre>
+                </div>
+            </li>
+            <li><span>Not all of the <i>Access Points</i> is available for two-way binding. For instance, in the example above, ".helloString.text" will never change by it self, therefore these two declare are identical in *this* case. </span>
+                <span><a target="githubWiki" href="https://github.com/woodheadz/knot.js/wiki/Observable-HTML-Access-Points">This link</a>  is the list for the observable Access Points for HTML elements. </span>
+            </li>
+        </ul>
+
+
+
         <h3 id="debugger">Debugger</h3>
         <p>
             One of the cool features comes with knot.js is the <i>Debugger</i>. With <i>Debugger</i>, knot.js is not another mystery black box to you.
@@ -160,32 +225,21 @@ $smarty->display("tutorialMenu.tpl");
             <b>Please do utilize <i>Debugger</i> to learn knot.js.</b> Why don't you call out the <i>Debugger</i> now, change something in the example input box and watch how knot.js works in this example?
         </p>
         <p>
-            Click on the <img src="../debugger/img/debugger.png" style="height:16px;width: 16px"> button in the bottom left of the Window to bring up <i>Debugger</i> window.
+            Click on the <img src="../debugger/img/debugger.png" style="height:16px;width: 16px"> button in the bottom right of the Window to bring up <i>Debugger</i> window.
             If it doesn't work, please check you popup blocker setting.<br>
             The image blow explains how to use <i>Debugger</i>
             <img src="../img/tutorial/t1_3.png">
 
-           <br> * Do you know the <i>Debugger</i> it-self is created with knot.js? Check the source files to see how simple and slick knot.js can do!
+            <p>To active <i>Debugger</i> in your project, just add this line to the head of the page:</p>
+            <div class="codeSegment">
+                <pre><code class="html"> &lt;script src=&quot;[PATH_TO_DEBUGGER]/knot.debug.js&quot;&gt;&lt;/script&gt;</code></pre>
+            </div>
+            <p>Please note the Debugger must be put in the same domain as your webpage, otherwise it won't work. And don't forget to remove this line before the release!</p>
+            <p>The <i>Debugger</i> button turns into <img src="../debugger/img/debugger_warning.png" style="height:16px;width: 16px"> when there are warning messages, and <img src="../debugger/img/debugger_error.png" style="height:16px;width: 16px">
+               where there are error messages. When you find something wrong, please check the error/warning messages first.</p>
+           <p class="specialHint">Do you know the <i>Debugger</i> it-self is created with knot.js? Check the source files to see how simple and slick knot.js can do!</p>
         </p>
 
-        <h3 id="more">A few more things</h3>
-        <ul>
-            <li>
-                <span>You can also put your options input HTML tag just like how you do it in the other frameworks (I don't think it's a good way, but I agree to disagree). Here's an example:</span>
-                <div class="codeSegment">
-                    <pre><code class="html">&lt;input type=&quot;text&quot; binding=&quot;value:name&quot;&gt;</code></pre>
-                </div>
-            </li>
-            <li>
-                <span>Similar to CSS, binding option apply to all HTML elements that selected by <i>Selector</i>. For example, the CBS below will bind the text content
-                    of all of the elements with class "title" to the "title" property of their own <i>Data Context</i> objects.</span>
-                <div class="codeSegment">
-                    <pre><code class="css">.title{
-    text: title
-}</code></pre>
-                </div>
-            </li>
-        </ul>
 
         <div class="footNote">
             <ul>
@@ -196,7 +250,7 @@ $smarty->display("tutorialMenu.tpl");
     </div>
 </section>
 
-<script type="text/cbs" class="exampleCBS">
+<script type="text/cbs">
     #codePages{
         sourceInfo:/sourceModel.codes
     }

@@ -157,15 +157,10 @@ require_once "comm.php";
 
 
     <h1>A quick example</h1>
-    To use knot.js in your webpage is very easy. You just need to add the line below to reference knot.js package, then everything would work.
-    <div class="codeSegment">
-        <pre><code class="html">
-&lt;script src=&quot;js/knot.min.js&quot;&gt;&lt;/script&gt;
-        </code></pre>
-    </div>
 
     <p>
-        Here is a simple example to give you some the first impression of knot.js. You can start to learn more about knot.js with the <a href="tutorial/tutorial_1.php"> tutorials</a>
+        Here is a simple example to give you some the first impression of knot.js. <br>
+        Start to learn more about <b>knot.js</b> with the <b><a href="tutorial/tutorial_1.php"> tutorials</a></b>
     </p>
     <script type="text/cbs" class="exampleCBS">
         /*

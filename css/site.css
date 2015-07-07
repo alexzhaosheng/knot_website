@@ -149,7 +149,7 @@ body{
     margin: 8px auto;
     line-height: 18px;
 }
-.content li p, .content li span{
+.content li>p, .content li>span{
     color: black;
 }
 .content li>ul>li{
@@ -257,4 +257,13 @@ body{
     color:black;
     font-size: 11px;
     list-style-type: disc;
+}
+
+.specialHint{
+    background-color: #eeeeee;
+    padding-left: 18px;
+    background-image: url("/img/light_bulb.png");
+    background-size: 16px 16px;
+    background-position: 0px 3px;
+    background-repeat: no-repeat;
 }
