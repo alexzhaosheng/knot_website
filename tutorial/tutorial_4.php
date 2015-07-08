@@ -221,7 +221,6 @@ $smarty->display("header.tpl");
     </p>
     <p>Check the example below:</p>
 
-    <div>
 
     <script type="text/cbs" id="staticTemplateExampleCBS">
         #staticTemplateExample{
@@ -294,7 +293,7 @@ $smarty->display("header.tpl");
         </div>
     </div>
     <div id="staticTemplateExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
-    </div>
+
 
     <ul>
         <li><span>In this example, the house drop down's options are added by anonymous template. The items in member list are created with template "memberTemplate" </span></li>
@@ -308,7 +307,7 @@ $smarty->display("header.tpl");
     <h3 id="templateSelector">Template Selector</h3>
     <p><i>Template Selector</i> is a very convenient way to deal with the complex template utilizing scenario. It is a function that created by user. Knot.js passes the data in to selector to get the correct template id.</p>
     <p><i>Template Selector</i> is declared by the <i>Access Point</i> option "templateSelector".</p>
-    <p>Let's learn from the example. This time we want to use different template for different house.</p>
+    <p>Let's learn from the example. This time we want to use the different template for the different house.</p>
     <script type="text/cbs" id="templateSelectorExampleCBS">
         #templateSelectorExample{
             dataContext: /iceAndFileCharactersModel;
@@ -420,9 +419,9 @@ $smarty->display("header.tpl");
 
     window.SourceCodeHelper.collectSourceCodes(
         [
-            {selector:"#templateSelectorExampleCBS",title:"CBS", type:"cbs"},
             {selector:"#templateSelectorExample",title:"HTML", type:"html"},
             {selector:"#templateSelectorExampleJS",title:"Javascript", type:"javascript"},
+            {selector:"#templateSelectorExampleCBS",title:"CBS", type:"cbs"},
             {selector:"#iceAndFileCharactersList",title:"Javascript(Data)", type:"javascript"},
             {selector:"#exampleCSS",title:"CSS", type:"css"}
         ],
