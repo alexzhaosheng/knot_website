@@ -225,6 +225,12 @@ body{
 .tutorialMenu .selected{
     font-weight: bold;
 }
+.tutorialMenu .inReading > a{
+    color:#FB6149
+}
+.tutorialMenu .inReading > a:hover{
+    color:#FB6149
+}
 .tutorialMenu p{
     line-height: 16px;
     font-size: 13px;
@@ -266,4 +272,10 @@ body{
     background-size: 16px 16px;
     background-position: 0px 3px;
     background-repeat: no-repeat;
+}
+
+
+.knot-example-tabPage .page-contentArea>div{
+    overflow: auto;
+    height: 400px;
 }

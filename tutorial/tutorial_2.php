@@ -66,18 +66,16 @@ $smarty->display("header.tpl");
         <p>Note there's only "output pipe", no "input pipe". What if you want an input pipe? just put the pipe to the other side.</p>
         <p>Let's learn more details by examples.</p>
 
-        <h3>Converter</h3>
+        <h3 id="converter">Converter</h3>
         <p>Here comes the "Greeting" example again, now it is evolved into V3!</p>
         <p>You must have noticed that in the "Greeting" V2, there's a weird "Hello" even when no name is inputted. We want it disappear!</p>
         <p>We also want to say a "formal" greeting by adding a title "Mr", and we only say the family name if there's family name inputted. Sorry ladies, but we have to do it step by step. We'll add "Ms" very soon.</p>
 
         </p>
         <script type="text/cbs" id="converterCBS">
-            body{
-                dataContext: /greetingModelV3;
-            }
+            #greetingExampleV3{
+                dataContext: /greetingModelV3Model;
 
-            .greetingExampleV3{
                 -> input{
                     value[immediately:1]: name;
                 };
@@ -100,7 +98,7 @@ $smarty->display("header.tpl");
             }
         </script>
         <script type="text/javascript" id="converterJS">
-            window.greetingModelV3 = {
+            window.greetingModelV3Model = {
                 name:"",
 
                 //always return the last name plus the title
@@ -111,7 +109,7 @@ $smarty->display("header.tpl");
                 }
             };
         </script>
-        <div class="knot_example greetingExampleV3" id="converterExampleHTML">
+        <div class="knot_example" id="greetingExampleV3">
             <h3>Greeting from knot.js (V3)</h3>
             <p>
                 <label>Input your name here: </label>
@@ -304,7 +302,9 @@ $smarty->display("header.tpl");
             The input sources are connected with "&" and enclosed with "(" and ")".</p>
         <p>Let's learn more from example. We said we would say "Ms." to the ladies in "Greeting" example before, let do it now.</p>
         <p>This time, we need a gender select to get the gender information, then change the .helloString. Note .helloString should be changed when any of gender and name is changed,
-        this is the typical case that we need <i>Multi-Binding</i>.</p>
+        this is the typical case that we need <i>Multi-Binding</i>.
+            <img src="../img/tutorial/t2_1.png">
+        </p>
         <script type="text/cbs" id="greetingExampleV4CBS">
 
             #greetingExampleV4{
@@ -337,7 +337,7 @@ $smarty->display("header.tpl");
 
                 //the difference between "N to 1 Pipe" and normal Pipe is the argument "value"
                 //In "N to 1 Pipe", it's an array that holds the input values in the same order
-                // as the Access Points list before the pipe.
+                // as they are in the Access Points list before the pipe.
                 getFormalTitle: function(value){
                     var names =  value[0].split(" ").filter(function(t){return t});
                     var gender = value[1];
@@ -365,9 +365,6 @@ $smarty->display("header.tpl");
 
         <div id="greetingExampleV4CodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
-        <ul>
-            <li><span></span></li>
-        </ul>
     </div>
 </section>
 
@@ -387,7 +384,7 @@ $smarty->display("header.tpl");
     window.SourceCodeHelper.collectSourceCodes(
         [
             {selector:"#converterCBS",title:"CBS", type:"cbs"},
-            {selector:"#converterExampleHTML",title:"HTML", type:"html"},
+            {selector:"#greetingExampleV3",title:"HTML", type:"html"},
             {selector:"#converterJS",title:"Javascript", type:"javascript"}
         ],
         function(res){
