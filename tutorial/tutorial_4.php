@@ -389,8 +389,51 @@ $smarty->display("header.tpl");
 
     <h3 id="dynamic">Dynamic Template</h3>
     <p>
-        Template selector is still not flexible enough for you ? Fine,
+        Though <i>Template Selector</i> can handle most of the sophisticate situation. Advanced user may still want to use <i>Dynamic Template</i> to get full control of template.
     </p>
+    <p>
+        Similar to <i>Template Selector</i>, <i>Dynamic Template</i> is a function that accept current Data Context as the input argument. But <i>Dynamic Template</i> returns an HTML element of the item instead of
+        the id of the template. And  <i>Dynamic Template</i> is declared by Access Point option "template", not "templateSelector".
+    </p>
+    <p>Let's take a look at this example:</p>
+    <script type="text/cbs" id="dynamicTemplateExampleCBS">
+        #dynamicTemplateExample{
+            -> .memberList{
+                /*
+                    use /dynamicTemplateForMember to show different templates for members
+                    bind to the "All" member list
+                */
+                foreach[template: @/dynamicTemplateForMember]:
+                    /iceAndFileCharactersModel.houses.2.members
+            };
+        }
+    </script>
+    <script id="dynamicTemplateExampleJS">
+        //create the item node from scratch
+        window.dynamicTemplateForMember = function(member, node){
+            var item = $('<div class="memberTemplate">' +
+                '<div></div>' +
+                '<img>' +
+                '</div>');
+            item.find("img").attr("src", member.url);
+            if(window.iceAndFileCharactersModel.houses[0].members.indexOf(member) >= 0){
+                item.find("div").text(member.name + " (Lanister)");
+                item.css("backgroundColor", "#ff9999");
+            }
+            else{
+                item.find("div").text(member.name + " (Stark)");
+                item.css("backgroundColor", "whitesmoke");
+            }
+            return item[0];
+        }
+    </script>
+    <div class="knot_example" id="dynamicTemplateExample">
+        <h3>A Song of Ice and Fire characters (V3, Simplified)</h3>
+        <div>
+            <div class="memberList"></div>
+        </div>
+    </div>
+    <div id="dynamicTemplateExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 </div>
 
 </div>
@@ -398,10 +441,16 @@ $smarty->display("header.tpl");
 
 <script type="text/cbs">
     #staticTemplateExampleCodePages{
-        sourceInfo:/sourceModel.staticTemplateExampleCodePages
+        sourceInfo:/sourceModel.staticTemplateExampleCodePages;
+        height:'400px';
     }
     #templateSelectorExampleCodePages{
-        sourceInfo:/sourceModel.templateSelectorExampleCodePages
+        sourceInfo:/sourceModel.templateSelectorExampleCodePages;
+        height:'400px';
+    }
+    #dynamicTemplateExampleCodePages{
+        sourceInfo:/sourceModel.dynamicTemplateExampleCodePages;
+        height:'200px';
     }
 </script>
 <script>
@@ -427,6 +476,16 @@ $smarty->display("header.tpl");
         ],
         function(res){
             window.sourceModel.templateSelectorExampleCodePages = res;
+        });
+
+    window.SourceCodeHelper.collectSourceCodes(
+        [
+            {selector:"#dynamicTemplateExample",title:"HTML", type:"html"},
+            {selector:"#dynamicTemplateExampleJS",title:"Javascript", type:"javascript"},
+            {selector:"#dynamicTemplateExampleCBS",title:"CBS", type:"cbs"}
+        ],
+        function(res){
+            window.sourceModel.dynamicTemplateExampleCodePages = res;
         });
 </script>
 

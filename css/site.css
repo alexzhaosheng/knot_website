@@ -273,9 +273,3 @@ body{
     background-position: 0px 3px;
     background-repeat: no-repeat;
 }
-
-
-.knot-example-tabPage .page-contentArea>div{
-    overflow: auto;
-    height: 400px;
-}
