@@ -67,7 +67,7 @@ $smarty->display("header.tpl");
 
     <div class="tutorialContent">
         <h2>Single Page App</h2>
-        <p>Single Page App is very helpful for improving the user experience. Here's a link tells you more about <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page App</a></p>
+        <p>Single Page App is very helpful for improving the user experience. Here's a link tells you more about <a target="_blank" href="https://en.wikipedia.org/wiki/Single-page_application">Single Page App</a></p>
         <p>Knot.js comes with a <i>Knot Variant</i> named "$hash", which enables you directly bind to hash status of your browser window, and make Single Page App easily implementable.</p>
         <p>For more information about <i>Knot Variant</i>, please follow this link:
             <a href="https://github.com/alexzhaosheng/knot.js/wiki/Knot-Variant">Knot Variant</a></p>

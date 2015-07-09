@@ -437,7 +437,7 @@ $smarty->display("header.tpl");
 
     <div class="footNote">
         <ul>
-            <li><span>Portraits of the character are from <a href="https://en.wikipedia.org">Wikipedia</a></span></li>
+            <li><span>Portraits of the character are from <a target="_blank" href="https://en.wikipedia.org">Wikipedia</a></span></li>
         </ul>
     </div>
 </div>
