@@ -23,8 +23,8 @@
                 <li><p><a href="/tutorial/tutorial_4.php#dynamic">Dynamic Template</a></p></li>
             </ul>
         </li>
-        <li><p>Bind to everything</p></li>
-        <li><p>Single Page App</p></li>
+        <li class="tutorial_5"><p><a href="/tutorial/tutorial_5.php">Single Page App</a></p></li>
+        <li class="tutorial_6"><p><a href="/tutorial/tutorial_6.php">Component And Reusable Code</a></p></li>
     </ul>
 </div>
 
@@ -49,7 +49,8 @@
                 }
             }
             curList.find("p").removeClass("inReading");
-            curItem.find("p").addClass("inReading");
+            if(curItem)
+                curItem.find("p").addClass("inReading");
         });
     });
 </script>

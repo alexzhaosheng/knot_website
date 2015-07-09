@@ -1,0 +1,91 @@
+#bookStoreHTML{
+    display: none;
+}
+#bookStoreHTML .navMenu ul{
+
+    border: lightgray 1px solid;
+    border-radius: 5px;
+    padding: 0;
+    display: inline-block;
+    margin: 0px;
+}
+#bookStoreHTML .navMenu li{
+    list-style: none;
+    color:black;
+    border-right: lightgray 1px solid;
+    display: inline-block;
+    padding: 4px 10px;
+    text-align: center;
+    min-width: 150px;
+    cursor: pointer;
+    margin: 0px;
+}
+#bookStoreHTML .navMenu li:last-child{
+    border-right: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#bookStoreHTML .navMenu li:first-child{
+    border-right: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#bookStoreHTML .navMenu li:hover{
+    background-color: #e0e0ff;
+}
+
+#bookStoreHTML .navMenu .selected{
+    background-color: #0381ff;
+    color:white;
+}
+#bookStoreHTML .navMenu .selected:hover{
+    background-color: #0371ee;
+}
+
+#booksList{
+    height:300px;
+    overflow: auto;
+}
+#booksList li{
+    list-style: none;
+    color:black;
+    padding: 5px;
+    cursor: pointer;
+}
+#booksList li:hover{
+    background-color: #e0e0ff;
+}
+
+#booksList li>div{
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    vertical-align: middle;
+}
+
+
+#booksList li>img{
+    width: 60px;
+    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#bookDetails{
+    height: 300px;
+    overflow: auto;
+}
+#bookDetails .title{
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#bookDetails img{
+    width: 150px;
+    height: 200px;
+}
+
+#bookDetails button{
+    padding: 5px 10px;
+}

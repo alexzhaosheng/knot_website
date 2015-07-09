@@ -305,8 +305,8 @@ $smarty->display("header.tpl");
 
 
     <h3 id="templateSelector">Template Selector</h3>
-    <p><i>Template Selector</i> is a very convenient way to deal with the complex template utilizing scenario. It is a function that created by user. Knot.js passes the data in to selector to get the correct template id.</p>
-    <p><i>Template Selector</i> is declared by the <i>Access Point</i> option "templateSelector".</p>
+    <p><i>Template Selector</i> is a very convenient way to deal with the complex template scenario. It is a function that created by user. Knot.js passes the data in to selector to get the correct template id.</p>
+    <p><i>Template Selector</i> is declared by the <i>Access Point Option</i> "templateSelector".</p>
     <p>Let's learn from the example. This time we want to use the different template for the different house.</p>
     <script type="text/cbs" id="templateSelectorExampleCBS">
         #templateSelectorExample{
@@ -434,8 +434,12 @@ $smarty->display("header.tpl");
         </div>
     </div>
     <div id="dynamicTemplateExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
-</div>
 
+    <div class="footNote">
+        <ul>
+            <li><span>Portraits of the character are from <a href="https://en.wikipedia.org">Wikipedia</a></span></li>
+        </ul>
+    </div>
 </div>
 </section>
 

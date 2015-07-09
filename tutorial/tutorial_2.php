@@ -281,12 +281,12 @@ $smarty->display("header.tpl");
         <div id="validatorCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
         <ul>
-            <li><span>"*LEFT" and "#(#nameSection input)" is <a target="gitHubWiki" href="https://github.com/woodheadz/knot.js/wiki/Target-Modifier"><i>Target Modifier</i></a>.</span>
+            <li><span>"*LEFT" and "#(#nameSection input)" is <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Target-Modifier"><i>Target Modifier</i></a>.</span>
                 <ul>
                     <li><span>"*LEFT" is used to reference the target on the left side of binding option.</span></li>
                     <li><span>"#(#nameSection input)" is used to access the HTML with CSS selector. </span></span></li>
                 </ul>
-                <span>For more information about <i>Target Modifier</i>, please follow <a target="gitHubWiki" href="https://github.com/woodheadz/knot.js/wiki/Target-Modifier">this link</a>.</span>
+                <span>For more information about <i>Target Modifier</i>, please follow <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Target-Modifier">this link</a>.</span>
             </li>
             <li><span>As you see, pipes can be connected with each other.</span></li>
             <li><span>Call Knot.getErrorStatusInformation without argument to validate data immediately and return the error status of the whole page. If you just want to get the

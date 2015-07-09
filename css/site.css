@@ -13,7 +13,9 @@ body{
     text-align: left;
 }
 
-
+i{
+    background: #FFeeee;
+}
 
 .knotDiv{
     width: 100%;
@@ -273,3 +275,8 @@ body{
     background-position: 0px 3px;
     background-repeat: no-repeat;
 }
+
+.codePageTemplate code{
+    overflow: visible;
+}
+

@@ -75,24 +75,20 @@ $smarty->display("tutorialMenu.tpl");
                         <pre><code class="html"> &lt;script src=&quot;[PATH_TO_KNOTJS]/knot.min.js&quot;&gt;&lt;/script&gt;</code></pre>
                     </div>
                 </li>
-                <li><span><i>"Selector"</i> is exactly the same as <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="w3schools">CSS selector</a>. </span></li>
+                <li><span><i>Selector</i> works in exactly the same idea as CSS Selector to CSS. It can be any of the <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="w3schools">CSS selectors</a> or <i> a Object Selector</i>.
+                        For more information about <i>Selector</i>, please follow this link: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Selector">https://github.com/alexzhaosheng/knot.js/wiki/Selector</a> </span></li>
                 <li><span>Each section ends with "<b>;</b>"</span></li>
                 <li><span><i>Access Point</i> is the description of where you want to bind to the target, it depends on the target.</span>
                     <ul>
-                        <li><span><i>Left Access Point</i> is on the HTML node selected by <i>"Selector"</i>. it can be any properties on the HTML element, or it can be path like "style.backgroundColor". </span></li>
+                        <li><span><i>Left Access Point</i> is on the object selected by <i>"Selector"</i> (in most case, it's HTML node). it can be any properties on the HTML element, or it can be path like "style.backgroundColor". </span></li>
                         <li><span><i>Right Access Point</i> is on the current <i>Data Context</i>. It can be properties or path of value like "address.postCode".
                                 And it can also be absolute path of value that starts with "/". In this case, knot.js ignores the current <i>Data Context</i> and get the value from the global scope. </span></li>
                     </ul>
                     <span>In the example above, it bind "value" of #userNameInput to the "name" property of current Data Context </span>
                     <p class="specialHint"><i>Access Point</i> is extendable. The components created by knot.js often support it's own special <i>Access Points</i>. Please check the document of the components that you are using.</p>
                 </li>
-                <li><span>There are four <i>Binding Types</i>:</span>
-                    <ul>
-                        <li><span><b>":"</b> is two-way binding. Any side changes, the other side is updated automatically</span> </li>
-                        <li><span><b>"=>"</b> is one-way binding. Only right side is updated (when left is changed) </span> </li>
-                        <li><span><b>"<="</b> is one-way binding. Only left side is updated (when right is changed) </span> </li>
-                        <li><span><b>"="</b> is one-off binding. It only updates the left side with the value of right side for the very first time </span> </li>
-                    </ul>
+                <li><span>There are four <i>Binding Types</i>: <i>:</i> for two-way binding, <i>"=>"</i>,<i>"<="</i> for one-way binding and <i>"="</i> for one-off binding. For more information about <i>Binding Types</i>,
+                        please follow this link:<a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Binding-types">https://github.com/alexzhaosheng/knot.js/wiki/Binding-types</a> </span>
                     <p class="specialHint">Just use <i>":"</i> if you don't know which type you should use.</p>
                 </li>
                 <li><span><i>Data Context</i> is the data you want to bind to the HTML element.</span>
@@ -210,7 +206,7 @@ $smarty->display("tutorialMenu.tpl");
                 </div>
             </li>
             <li><span>Not all of the <i>Access Points</i> is available for two-way binding. For instance, in the example above, ".helloString.text" will never change by it self, therefore these two declare are identical in *this* case. </span>
-                <span><a target="githubWiki" href="https://github.com/woodheadz/knot.js/wiki/Observable-HTML-Access-Points">This link</a>  is the list for the observable Access Points for HTML elements. </span>
+                <span><a target="githubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Observable-HTML-Access-Points">This link</a>  is the list for the observable Access Points for HTML elements. </span>
             </li>
         </ul>
 
