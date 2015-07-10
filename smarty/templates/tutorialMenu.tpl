@@ -1,30 +1,30 @@
 <div class="tutorialMenu">
     <h3>Tutorials</h3>
     <ul>
-        <li class="tutorial_1"><p><a href="/tutorial/tutorial_1.php">Start</a></p>
+        <li class="tutorial_1"><p><a href="/tutorial/1">Start</a></p>
             <ul>
-                <li><p><a href="/tutorial/tutorial_1.php#cbs">CBS Basic</a></p></li>
-                <li><p><a href="/tutorial/tutorial_1.php#more">More About CBS</a></p></li>
-                <li><p><a href="/tutorial/tutorial_1.php#debugger">Debugger</a></p></li>
+                <li><p><a href="/tutorial/1#cbs">CBS Basic</a></p></li>
+                <li><p><a href="/tutorial/1#more">More About CBS</a></p></li>
+                <li><p><a href="/tutorial/1#debugger">Debugger</a></p></li>
             </ul>
         </li>
-        <li class="tutorial_2"><p><a href="/tutorial/tutorial_2.php">Pipe</a></p>
+        <li class="tutorial_2"><p><a href="/tutorial/2">Pipe</a></p>
             <ul>
-                <li><p><a href="/tutorial/tutorial_2.php#converter">Converter</a></p></li>
-                <li><p><a href="/tutorial/tutorial_2.php#validator">Validator And Binding to Error Status</a></p></li>
-                <li><p><a href="/tutorial/tutorial_2.php#multi">Multi-Binding</a></p></li>
+                <li><p><a href="/tutorial/2#converter">Converter</a></p></li>
+                <li><p><a href="/tutorial/2#validator">Validator And Binding to Error Status</a></p></li>
+                <li><p><a href="/tutorial/2#multi">Multi-Binding</a></p></li>
             </ul>
         </li>
-        <li class="tutorial_3"><p><a href="/tutorial/tutorial_3.php">Event</a></p></li>
-        <li class="tutorial_4"><p><a href="/tutorial/tutorial_4.php">Template</a></p>
+        <li class="tutorial_3"><p><a href="/tutorial/3">Event</a></p></li>
+        <li class="tutorial_4"><p><a href="/tutorial/4">Template</a></p>
             <ul>
-                <li><p><a href="/tutorial/tutorial_4.php#static">Static Template</a></p></li>
-                <li><p><a href="/tutorial/tutorial_4.php#templateSelector">Template Selector</a></p></li>
-                <li><p><a href="/tutorial/tutorial_4.php#dynamic">Dynamic Template</a></p></li>
+                <li><p><a href="/tutorial/4#static">Static Template</a></p></li>
+                <li><p><a href="/tutorial/4#templateSelector">Template Selector</a></p></li>
+                <li><p><a href="/tutorial/4#dynamic">Dynamic Template</a></p></li>
             </ul>
         </li>
-        <li class="tutorial_5"><p><a href="/tutorial/tutorial_5.php">Single Page App</a></p></li>
-        <li class="tutorial_6"><p><a href="/tutorial/tutorial_6.php">Component</a></p></li>
+        <li class="tutorial_5"><p><a href="/tutorial/5">Single Page App</a></p></li>
+        <li class="tutorial_6"><p><a href="/tutorial/6">Component</a></p></li>
     </ul>
 </div>
 

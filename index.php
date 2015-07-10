@@ -127,7 +127,7 @@ require_once "comm.php";
                             <p>Easy. Knot.js follows intuition in all aspects.</p>
                         </li>
                         <li>
-                            <p>Fast. Knot.js has very good performance. It's almost as fast as using jQuery directly. Check this link for <a href="performance/performance.php"> the performance comparison between jQuery, knot.js and AngularJS</a> </p>
+                            <p>Fast. Knot.js has very good performance. It's almost as fast as using jQuery directly. Check this link for <a href="performance/"> the performance comparison between jQuery, knot.js and AngularJS</a> </p>
                         </li>
                         <li>
                             <p>Feature-complete. Templates, data validation, multi-binding, single page application, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>
@@ -164,7 +164,7 @@ require_once "comm.php";
 
     <p>
         Here is a simple example to give you some the first impression of knot.js. <br>
-        Start to learn more about <b>knot.js</b> with the <b><a href="tutorial/tutorial_1.php"> tutorials</a></b>
+        Start to learn more about <b>knot.js</b> with the <b><a href="tutorial/"> tutorials</a></b>
     </p>
     <script type="text/cbs" class="exampleCBS">
         /*
