@@ -24,7 +24,7 @@
             </ul>
         </li>
         <li class="tutorial_5"><p><a href="/tutorial/tutorial_5.php">Single Page App</a></p></li>
-        <li class="tutorial_6"><p><a href="/tutorial/tutorial_6.php">Component And Reusable Code</a></p></li>
+        <li class="tutorial_6"><p><a href="/tutorial/tutorial_6.php">Component</a></p></li>
     </ul>
 </div>
 

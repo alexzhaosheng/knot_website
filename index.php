@@ -95,7 +95,8 @@ require_once "comm.php";
                 <b>You don't want to write more codes just because the framework forces you to do.</b>
                 <p>
                     Knot.js has a built-in a fully automatic data awareness system. Just grab your data and throw it to knot.js, it will take care of the rests. When you change the data in your
-                    Javascript code, knot.js will update UI for you automatically.
+                    Javascript code, knot.js will update UI for you automatically.<br/>
+                    And you won't be forced to learn how to do the simple things in another odd way, all your old knowledge just works with knot.js.
                 </p>
             </p>
         </li>
@@ -120,10 +121,13 @@ require_once "comm.php";
                             <p>Free. MIT license</p>
                         </li>
                         <li>
-                            <p>Tiny. 39kb and no dependency.</p>
+                            <p>Tiny. 43kb and no dependency.</p>
                         </li>
                         <li>
                             <p>Easy. Knot.js follows intuition in all aspects.</p>
+                        </li>
+                        <li>
+                            <p>Fast. Knot.js has very good performance. It's almost as fast as using jQuery directly. Check this link for <a href="performance/performance.php"> the performance comparison between jQuery, knot.js and AngularJS</a> </p>
                         </li>
                         <li>
                             <p>Feature-complete. Templates, data validation, multi-binding, single page application, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>

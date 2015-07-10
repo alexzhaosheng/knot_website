@@ -343,6 +343,7 @@ $smarty->display("header.tpl");
     </script>
     <script id="templateSelectorExampleJS">
         window.memberTemplateSelector = function(member, node){
+            //simply check whether the member is in Lanister's house
             if(window.iceAndFileCharactersModel.houses[0].members.indexOf(member) >= 0){
                 return "lanisterMemberTemplate";
             }

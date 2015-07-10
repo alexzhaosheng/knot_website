@@ -280,3 +280,8 @@ i{
     overflow: visible;
 }
 
+.inlineCode{
+    padding: 0px 5px;
+    background-color: #efefef;
+}
+

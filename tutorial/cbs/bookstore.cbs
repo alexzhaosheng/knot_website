@@ -37,6 +37,7 @@ body{
     /* this is the template of category items in menu */
     -> >li{
         @click: @{
+            Knot.setKnotVariant("$hash.category", window.bookStoreModel.selected.category.id);
             /* set the hash variant "book" to the id of current book to show it */
             Knot.setKnotVariant("$hash.book", this.id);
         };

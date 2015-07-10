@@ -3,7 +3,7 @@ $private
 <<{{
 <div class="sourceTab" knot-template-id="sourceTab" knot-component="TabPage">
     <div class="codePageTemplate" knot-template-id="codePageTemplate">
-        <pre class="prettyprint linenumber">
+        <pre>
             <code></code>
         </pre>
     </div>

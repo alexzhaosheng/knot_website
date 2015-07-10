@@ -1,0 +1,35 @@
+/*Use $private to make sure the CBS options only effect in this file */
+$private
+
+/* Embedded HTML must be template and can only be accessed as template */
+<<{{
+    <div class="knot-example-tagEditor" knot-template-id="knot-example-tagEditor">
+        <div>
+            <div class="knot-example-tagEditor-tags" knot-template>
+                <span></span>
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+        <i class="knot-example-tagEditor-add fa fa-plus-circle"></i>
+        <input class="newTags" type="text" placeHolder="Input new tags here">
+    </div>
+}}>>
+
+.knot-example-tagEditor>div{
+    foreach: tags
+}
+
+.knot-example-tagEditor-tags{
+    style.backgroundColor: tagColor;
+
+    -> >span{
+        text:name
+    };
+    -> >i{
+        @click:@__knot_global.onDeleteTag;
+    };
+}
+
+.knot-example-tagEditor-add{
+    @click:@onAdd;
+}
