@@ -76,19 +76,20 @@ $smarty->display("tutorialMenu.tpl");
                     </div>
                 </li>
                 <li><span><i>Selector</i> works in exactly the same idea as CSS Selector to CSS. It can be any of the <a href="http://www.w3schools.com/cssref/css_selectors.asp" target="w3schools">CSS selectors</a> or <i> a Object Selector</i>.
-                        For more information about <i>Selector</i>, please follow this link: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Selector">https://github.com/alexzhaosheng/knot.js/wiki/Selector</a> </span></li>
+                        For more information about <i>Selector</i>, please follow this link: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Selector">Selector(Wiki@GitHub)</a> </span></li>
                 <li><span>Each section ends with "<b>;</b>"</span></li>
                 <li><span><i>Access Point</i> is the description of where you want to bind to the target, it depends on the target.</span>
                     <ul>
-                        <li><span><i>Left Access Point</i> is on the object selected by <i>"Selector"</i> (in most case, it's HTML node). it can be any properties on the HTML element, or it can be path like "style.backgroundColor". </span></li>
+                        <li><span><i>Left Access Point</i> is on the object selected by <i>"Selector"</i> (in most case, it's a HTML element). It can be any properties on the HTML element, or it can be path like "style.backgroundColor". </span></li>
                         <li><span><i>Right Access Point</i> is on the current <i>Data Context</i>. It can be properties or path of value like "address.postCode".
                                 And it can also be absolute path of value that starts with "/". In this case, knot.js ignores the current <i>Data Context</i> and get the value from the global scope. </span></li>
                     </ul>
-                    <span>In the example above, it bind "value" of #userNameInput to the "name" property of current Data Context </span>
+                    <span>In the example above, it bind "value" of #userNameInput to the "name" property of current Data Context. For more information about the <i>Access Point</i>, please follow this link:
+                        <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Access-Point">Access Point(Wiki@GitHub)</a> </span>
                     <p class="specialHint"><i>Access Point</i> is extendable. The components created by knot.js often support it's own special <i>Access Points</i>. Please check the document of the components that you are using.</p>
                 </li>
                 <li><span>There are four <i>Binding Types</i>: <i>:</i> for two-way binding, <i>"=>"</i>,<i>"<="</i> for one-way binding and <i>"="</i> for one-off binding. For more information about <i>Binding Types</i>,
-                        please follow this link:<a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Binding-types">https://github.com/alexzhaosheng/knot.js/wiki/Binding-types</a> </span>
+                        please follow this link:<a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Binding-types">Binding-types(Wiki@GitHub)</a> </span>
                     <p class="specialHint">Just use <i>":"</i> if you don't know which type you should use.</p>
                 </li>
                 <li><span><i>Data Context</i> is the data you want to bind to the HTML element.</span>
@@ -237,12 +238,6 @@ $smarty->display("tutorialMenu.tpl");
         </p>
 
 
-        <div class="footNote">
-            <ul>
-                <li>The handdrawn style flowchart is created with <a href="http://yuml.me/">yUML</a></li>
-                <li>Syntax hight light ability is from <a href="https://highlightjs.org/">highlight.js</a></li>
-            </ul>
-        </div>
     </div>
 </section>
 

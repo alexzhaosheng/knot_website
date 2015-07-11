@@ -301,7 +301,7 @@ $smarty->display("header.tpl");
            You can do <i>Multi-Binding</i> by a special type of pipe named "<i>N to 1 Pipe</i>", which accepts multiple inputs and generate one output.
             The input sources are connected with "&" and enclosed with "(" and ")".</p>
         <p>Let's learn more from example. We said we would say "Ms." to the ladies in "Greeting" example before, let do it now.</p>
-        <p>This time, we need a gender select to get the gender information, then change the .helloString. Note .helloString should be changed when any of gender and name is changed,
+        <p>This time, we need a gender select to get the gender information, then change the <span class="inlineCode">.helloString</span>. Note whenever gender or name is changed, <span>.helloString</span> must be updated,
         this is the typical case that we need <i>Multi-Binding</i>.
             <img src="../img/tutorial/t2_1.png">
         </p>
@@ -370,13 +370,16 @@ $smarty->display("header.tpl");
 
 <script type="text/cbs">
     #converterCodePages{
-        sourceInfo:/sourceModel.converterCodes
+        sourceInfo:/sourceModel.converterCodes;
+        height:'300px'
     }
     #validatorCodePages{
-        sourceInfo:/sourceModel.validatorCodes
+        sourceInfo:/sourceModel.validatorCodes;
+        height:'500px'
     }
     #greetingExampleV4CodePages{
-        sourceInfo:/sourceModel.greetingExampleV4Codes
+        sourceInfo:/sourceModel.greetingExampleV4Codes;
+        height:'300px'
     }
 </script>
 <script>

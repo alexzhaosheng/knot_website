@@ -140,6 +140,7 @@ function dispose(){}
         </select>
         </p>
 
+        <!-- declare knot.js component. The tag editor will be put inside this tag -->
         <div id="tagEditorContainer" knot-component="TagEditor"></div>
     </div>
 
@@ -166,6 +167,15 @@ function dispose(){}
         </li>
         <li>
             <span>The HTML resources in the <i>Private CBS Package</i> must be template. And can only accessed by the template id.</span>
+        </li>
+        <li>
+            <span>What if user just want to set a fixed color other than bind the color to something? Easy, just use '' to quote the fixed value like this example:</span>
+            <div class="codeSegment">
+                        <pre><code class="css">#tagEditorContainer{
+    tags: /tags;
+    tagColor: '#ffaa44';
+}</code></pre>
+            </div>
         </li>
     </ul>
 </div>

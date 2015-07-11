@@ -162,13 +162,18 @@ i{
 
 }
 .footer{
-    padding: 0px;
+    padding: 0px 10px;
     background-color: #2E2F35;
     color:white;
     height: 50px;
     line-height: 50px;
-    width: 100%;
+    width: calc(100% - 20px);
     border-top: 1px solid #aaaaaa;
+    text-align: center;
+}
+.footer a, .footer a:hover, footer a:visited{
+    color:white;
+    margin-right: 10px;
 }
 
 .knot_example{
@@ -195,6 +200,10 @@ i{
 }
 .codeSegment>pre{
     margin: 0px;
+}
+
+.introImage{
+    width: 100%
 }
 
 #debuggerMessage{

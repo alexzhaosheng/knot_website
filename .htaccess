@@ -1,0 +1,8 @@
+RewriteEngine on
+
+
+RewriteRule ^tutorial/$ /tutorial/tutorial_1.php
+RewriteRule ^tutorial/(\w*)$ /tutorial/tutorial_$1.php
+
+RewriteRule ^performance/$ /performance/performance.php
+RewriteRule ^about$ /about.php

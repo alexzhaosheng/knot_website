@@ -25,6 +25,7 @@
         </li>
         <li class="tutorial_5"><p><a href="/tutorial/5">Single Page App</a></p></li>
         <li class="tutorial_6"><p><a href="/tutorial/6">Component</a></p></li>
+        <li class="tutorial_7"><p><a href="/tutorial/7">Tricks And Traps</a></p></li>
     </ul>
 </div>
 

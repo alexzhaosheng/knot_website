@@ -50,7 +50,7 @@ $smarty->display("header.tpl");
     <p>
         Here's the performance test result between jQuery, knot.js and angularJS.
     </p>
-    <p>This test create 1000 todo items, toggle their complete status and set a random number for it for 10 times, then remove those items.
+    <p>This test creates 1000 todo items, toggle their complete status and set a random number one by one for 10 times, then remove those items.
         It sleeps 500 milliseconds between each of the actions to try to avoid the impact of GC (hopefully).</p>
 
     <p><b>Note this is just for your reference.</b> Performance is effected by many aspects, you may get totally different result from the different scenarios.
@@ -58,7 +58,7 @@ $smarty->display("header.tpl");
 
     <p>The score is the time cost for the test action in milliseconds. The lower the better.</p>
     <p>
-        Knot.js test works in two modes:
+        Knot.js test works in two mode:
         <ul>
             <li><span>Normal mode (knot.js): Add/remove the items one by one.</span></li>
             <li><span>Batch mode (knot.js(Batch mode)): Add/remove all of the items in one time.</span></li>
