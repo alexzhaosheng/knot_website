@@ -58,9 +58,13 @@ $smarty->display("header.tpl");
     ?>
 
     <div class="tutorialContent">
-        <h2>Tricks And Traps</h2>
-        <h3>Animation</h3>
-        <p>Knot.js works with almost all of the animation libraries. You can interpose anytime to add the animation effect. Here's an example of using jQuery Animation effect.</p>
+        <h2>Animation</h2>
+        <p>Knot.js comes with a series of <i>Access Point Events</i> which allows you interpose anytime to do something special, such as animation.
+           Knot.js works with almost all of the animation libraries the animation effect. </p>
+        <p>To know more about <i>Access Point Events</i>, please follow this link: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Access-Point-Events">Access Point Events @GitHubWiki</a></p>
+        <p>Here's an example of using jQuery Animation effect. In this example, we'll bump the text when it's value is changed, and use animation to add new item to the list.
+        </p>
+
         <style type="text/css" id="animationCSS">
             #animationExample .userList{
                 width: 150px;
@@ -83,6 +87,7 @@ $smarty->display("header.tpl");
                 border: 1px lightgray solid;
                 line-height: 20px;
                 margin: 1px;
+                overflow: hidden;
             }
             #animationExample .user{
                 background: lightgreen;;
@@ -90,115 +95,128 @@ $smarty->display("header.tpl");
             #animationExample .admin{
                 background:  lightpink;
             }
-            #animationExample .inAnimatingContainer{
+            #animationExample .ghostVisualContainer{
                 position: absolute;
                 width: 150px;
             }
         </style>
         <script type="text/cbs" id="animationCBS">
-           #animationExample{
-                dataContext:/animationExampleModel;
-                -> .userInfo{
-                        class: type>@{return value=="u"?"+user -admin":"+admin -user";};
-                        ->span{text: name};
-                };
+#animationExample{
+    dataContext:/animationExampleModel;
+    -> .userInfo{
+            class: type>@{return value=="u"?"+user -admin":"+admin -user";};
 
-                -> .userList{
-                    foreach[template: userInfo; @added: @onUserAdded]: userList;
-                };
+            /* user "@set" event to animate the text when text is changed. */
+            ->span{text[@set: @/animationExampleModel.onTextSet]: name};
+    };
 
-                -> .editArea{
-                    -> .userInEditing{
-                        content[template: userInfo]: inEditing;
-                    };
-                    -> .inAnimatingContainer{
-                        style.display: inAnimating> @{return value?"block":"none";};
-                        content[template: userInfo]: inAnimating;
-                    };
+    -> .userList{
+        /* user "@added" event to animate adding item to list. */
+        foreach[template: userInfo; @added: @/animationExampleModel.onUserAdded]: userList;
+    };
 
-                    -> .editUI{
-                        -> input{value:inEditing.name};
-                        -> select{value:inEditing.type};
-                        -> .okButton{
-                            @click:@{
-                                this.userList.push(this.inEditing);
-                                this.inEditing = {type:"u"};
-                            }
-                        }
-                    }
+    -> .editArea{
+        -> .userInEditing{
+            content[template: userInfo]: inEditing;
+        };
+
+        /* This is ghost visual when animate adding item  */
+        -> .ghostVisualContainer{
+            style.display: inAnimating> @{return value?"block":"none";};
+            content[template: userInfo]: inAnimating;
+        };
+
+        -> .editUI{
+            -> input{value[immediately:1]:inEditing.name};
+            -> select{value:inEditing.type};
+            -> .okButton{
+                @click:@{
+                    this.userList.push(this.inEditing);
+                    this.inEditing = {type:"u"};
                 }
             }
+        }
+    }
+}
         </script>
         <script id="animationJS">
             window.animationExampleModel = {
                 userList:[],
                 inEditing: {type:"u"},
 
+                //when animate adding item, set the item to animationExampleModel.inAnimating
+                //CBS will create a ghost visual for it and we just need to simply animating that visual.
                 inAnimating:null,
 
+                //this is called when new item is added to list. "node" is the new item's HTML element
                 onUserAdded: function(node, value){
-                    window.animationExampleModel.inEditing = value;
-                    $(node).hide();
+                    //hide the new item first, will show it after animation is finished.
+                    $(node).css("opacity", 0);
+
+                    // set new value to "inAnimating", ghostVisual will be created automatically.
+                    window.animationExampleModel.inAnimating = value;
+                    var ghostVisual = $("#animationExample .ghostVisualContainer");
+
+
+                    //the animation is moving ghost visual from the position in editor to
+                    //the position in list. therefore set the position of the ghost to the position
+                    // of editor first.
                     var inEditing = $("#animationExample .userInEditing");
-                    $("#animationExample .inAnimatingContainer")
-                        .css("left", inEditing.offset().left  - $("body").scrollLeft())
-                        .css("right", inEditing.offset().right  - $("body").scrollTop())
-                        .animate({opacity:1, left: $(node).offset().left, top: $(node).offset().top}, 600, function () {
+
+                    ghostVisual
+                        .css("left", inEditing.offset().left)
+                        .css("top", inEditing.offset().top)
+                        .animate({left: $(node).offset().left, top: $(node).offset().top-4}, 600, function () {
+                            //show the node in list.
                             $(node).css("opacity", 1);
+                            //set inAnimating to null to dispose the ghost visual
                             window.animationExampleModel.inAnimating = null;
                         });
+                },
+
+                //bump the text when it's changed.
+                onTextSet: function(node, value){
+                    var p = this.parentNode;
+                    $(p).css("transform", "translate(0,-2px)");
+                    setTimeout(function(){
+                        $(p).css("transform", "translate(0,0px)");
+                    },100)
                 }
             };
         </script>
 
         <div class="knot_example" id="animationExample">
             <h2>Knot.js example - Animation</h2>
-            <div class="userInfo" knot-template-id="userInfo">&nbsp;<span></span></div>
+            <div class="userInfo" knot-template-id="userInfo">Name:<span></span></div>
             <div class="userList">
             </div>
 
             <div class="editArea">
                 <div class="userInEditing"></div>
                 <div class="editUI">
-                    <input type="text" placeholder="User name"> <br>
-                    <label>User Type:</label>
+                    <p>
+                    <label>User Type:</label><br>
                     <select>
                         <option value="a">Admin</option>
                         <option value="u">User</option>
                     </select>
-                    <br>
-                    <button class="okButton">OK</button>
+                    </p>
+                    <p>
+                    <label>User name</label><br>
+                    <input type="text"> <br>
+                    </p>
+                    <button class="okButton">Add</button>
                 </div>
-                <div class="inAnimatingContainer"></div>
+                <div class="ghostVisualContainer"></div>
             </div>
         </div>
 
         <div id="animationExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
-        <h3>Traps</h3>
         <ul>
-            <li><span>Don't forget to remove the reference to the <i>Debugger</i> before you release, it may bring serious performance problem!</span></li>
-            <li><span>Due to some technique limits, data-awareness system <b>DOES NOT</b> fully work with array. Therefore please note:</span>
-                <ul>
-                    <li><span>If you change the data in array by using index, you need to tell knot.js by calling <span class="inlineCode">notifyChanged</span>. Here's the example:
-                        <div class="codeSegment">
-                            <pre><code class="javascript">var arr = ["a", "b", "c"];
-arr[1] = "x";
-//tell knot.js that the old item at 1 has been removed and a new item is inserted at 1.
-//you can also simply call arr.notifyChange(); but if you are working with a big array,
-//it may bring up performance problem.
-arr.notifyChanged([1],[1]);
-    </div>
-                    </li>
-                    <li><span>Similar problem happens when you set the length of the array, you have to tell knot.js the array has been modified.</span></li>
-                    <li><span>If you are modifying a property on the items of the array, knot.js will know it.</span></li>
-                </ul>
-            </li>
-            <li><span>If your object has some properties that defined with "Object.defineProperty", I'm sorry they won't work with knot.js directly.
-                    You can set "configurable" to false when define the property and use <span class="inlineCode">Knot.notifyObjectChanged(object, path, oldValue, newValue)</span>
-                    to tell knot.js when it's changed.</li>
+            <li><span>There's a "ghost visual" is created for adding user animation. When the new user is added, it first hide the newly added HTML elemnt in the list, then create the ghost visual with knot.js template, then animate the ghost visual
+            from the editor to list. When animation is finished, it dispose the ghost visual and show the HTML element.</span></li>
         </ul>
-
     </div>
 </section>
 

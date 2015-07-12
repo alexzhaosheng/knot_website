@@ -123,16 +123,14 @@ $smarty->display("tutorialMenu.tpl");
         <p>Let's take a look at the "Greeting" example again (with a little bit changes to get Javascript involved):</p>
 
         <script type="text/cbs" class="exampleCBS">
-            /*
-            Set the default dataContext of all elements in page to "/greetingModel",
-            which is window.greetingModel that created in Javascript
-            */
-            body{
-                dataContext: /greetingModel;
-            }
-
-
             .knot_example {
+                /*
+                    Set the default dataContext of all elements in example to "/greetingModel",
+                    which is window.greetingModel that created in Javascript
+                */
+                dataContext: /greetingModel;
+
+
                 /*
                     Bind "value" of the input to "name".  Since the dataContext is window.greetingModel,
                     it is actually bind to window.greetingModel.name.

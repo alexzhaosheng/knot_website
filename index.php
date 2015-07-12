@@ -124,7 +124,7 @@ require_once "comm.php";
                             <p>Free. MIT license</p>
                         </li>
                         <li>
-                            <p>Tiny. 43kb and no dependency.</p>
+                            <p>Tiny. 44kb and no dependency.</p>
                         </li>
                         <li>
                             <p>Easy. Knot.js follows intuition in all aspects.</p>
