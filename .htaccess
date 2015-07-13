@@ -1,5 +1,6 @@
 RewriteEngine on
 
+RewriteRule ^download/latest$ /downloadLatest.php
 
 RewriteRule ^tutorial/$ /tutorial/tutorial_1.php
 RewriteRule ^tutorial/(\w*)$ /tutorial/tutorial_$1.php

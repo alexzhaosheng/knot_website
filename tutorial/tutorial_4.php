@@ -36,7 +36,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <script>
         window.sourceModel = {};
@@ -208,16 +208,16 @@ $smarty->display("header.tpl");
 <div class="tutorialContent">
     <h2>Template</h2>
     <p>
-        Template is essential for creating the sophisticated UI. Especially in knot.js, template takes a vital position.
-        You'll need it not only for repeating or nested UI blocks, but also for reusable UI component.
+        Template is essential for creating sophisticated UI. Especially in knot.js, template takes a vital position.
+        You'll need it not only for repeating or nested UI blocks, but also for reusable UI components.
     </p>
-    <p>To use template, you can use <i>Access Point</i> "foreach" (for repeating UI blocks) or "content" for (for nested UI blocks).
-        You can also create UI blocks from template in your Javascript, we'll talk about this in the tutorial relevant to reusable UI component</p>
+    <p>To use template, you can use <i>Access Point</i> "foreach" (for repeating UI blocks) or "content" (for nested UI blocks).
+        You can also create UI blocks from template in your Javascript, we'll talk about this in the tutorial relevant to reusable UI component.</p>
 
 
     <h3 id="static">Static Template</h3>
     <p>
-        Static Template is defined in HTML as a single HTML element, and is assigned the template id by attribute "<b>knot-template-id</b>", or is marked with attribute "<b>knot-template</b>" (for the anonymous template).
+        Static Template is defined in HTML as a single HTML element, and is assigned the template id by the attribute named <span class="inlineCode">knot-template-id</span>, or is marked with attribute <span class="inlineCode">knot-template</span> (for the anonymous template).
     </p>
     <p>Check the example below:</p>
 
@@ -296,9 +296,9 @@ $smarty->display("header.tpl");
 
 
     <ul>
-        <li><span>In this example, the house drop down's options are added by anonymous template. The items in member list are created with template "memberTemplate" </span></li>
+        <li><span>In this example, the house dropdown's options are added by anonymous template. The items in member list are created with the template with id "memberTemplate" </span></li>
         <li><span>Please note that the <i>Data Context</i> of the template is set with the corresponding data. Elements created from template has different Data Context than it's parent.</span></li>
-        <li><span>Anonymous template must be the only child of the element that use it as template by "foreach" or "content" <i>Access Point</i></span></li>
+        <li><span>Anonymous template must be the <b>only</b> child of the element that use it as template by "foreach" or "content" <i>Access Point</i></span></li>
         <li><span>Jon Snow is a Stark. Here is the <a target="_blank" href="https://en.wikipedia.org/wiki/Jon_Snow_(character)#Family_tree_of_House_Stark">proof</a></span></li>
     </ul>
 
@@ -384,7 +384,7 @@ $smarty->display("header.tpl");
     <ul>
         <li><span>In this example, the items in house member list are created from two different templates:"starkMemberTemplate", "lanisterMemberTemplate". Knot.js calls <i>Template Selector</i>
                 "window.memberTemplateSelector" to decide which template it should use. </span></li>
-        <li><span>You may have noticed, the status of this V2 list is synchronized with the V1 list. This is because they all bind to the same data model, which is "window.iceAndFileCharactersModel".</span></li>
+        <li><span>You may have noticed, the status of the V2 example member list is synchronized with the V1 list. This is because they are all bound to the same view model, which is "window.iceAndFileCharactersModel".</span></li>
     </ul>
 
 
@@ -393,7 +393,7 @@ $smarty->display("header.tpl");
         Though <i>Template Selector</i> can handle most of the sophisticate situation. Advanced user may still want to use <i>Dynamic Template</i> to get full control of template.
     </p>
     <p>
-        Similar to <i>Template Selector</i>, <i>Dynamic Template</i> is a function that accept current Data Context as the input argument. But <i>Dynamic Template</i> returns an HTML element of the item instead of
+        Similar to <i>Template Selector</i>, <i>Dynamic Template</i> is a function that accept current Data Context as the input argument. The difference is,  <i>Dynamic Template</i> returns an HTML element of the item instead of
         the id of the template. And  <i>Dynamic Template</i> is declared by Access Point option "template", not "templateSelector".
     </p>
     <p>Let's take a look at this example:</p>
@@ -435,10 +435,14 @@ $smarty->display("header.tpl");
         </div>
     </div>
     <div id="dynamicTemplateExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
+    <ul>
+        <li><span>You can create from template from Javascript by calling <span class="inlineCode">Knot.Advanced.createFromTemplate(template, data, owner)</span>, so you can get full control of the
+                template without loosing the convenience of static template.</span></li>
+    </ul>
 
     <div class="footNote">
         <ul>
-            <li><span>Portraits of the character are from <a target="_blank" href="https://en.wikipedia.org">Wikipedia</a></span></li>
+            <li><span>Portraits of the characters are from <a target="_blank" href="https://en.wikipedia.org">Wikipedia</a></span></li>
         </ul>
     </div>
 </div>

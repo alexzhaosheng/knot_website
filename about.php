@@ -20,7 +20,9 @@ require_once "comm.php";
     <link rel="shortcut icon" href="../img/knot.ico">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://blockchain.info/Resources/wallet/pay-now-button.js"></script>
 
     <link rel="stylesheet" href="../css/github.css">
     <script src="../js/highlight.pack.js"></script>
@@ -34,6 +36,9 @@ require_once "comm.php";
         }
         p, img, ul{
             padding-left: 30px;
+        }
+        .authorImg{
+            width: 400px;
         }
         .content li{
             list-style: none;
@@ -55,21 +60,29 @@ $smarty->display("header.tpl");
     <p>
         Sheng Zhao (Alex) is living in Australia with his wife and two little troubles.
     </p>
-    <img src="/img/author.jpg">
+    <img class="authorImg" src="/img/author.jpg">
     <p>
         You can reach him by <br>
         <ul>
             <li><span><a href="mailto:knotjs@gmail.com"> knotjs@gmail.com</a></span> </li>
             <li><span><a href="http://au.linkedin.com/in/alexzhaosheng" >Linkedin</span></a></li>
+            <li><span><a href="https://www.facebook.com/zhao.alex">Facebook</a> </span></li>
+            <li><span><a href="http://weibo.com/2018493034/profile">Weibo</a></span></li>
+            <li><span><a href="https://twitter.com/Woodheadz">Twitter</a></span></li>
         </ul>
     </p>
+
+    <h3>Support knot.js</h3>
+    <p>First, I'd be very appreciate to any one who uses knot.js and gives me the feedback.</span></p>
+        <p><span>If you have some idea about knot.js, just fork it.</span></p>
+        <p><span>Join me to build the site/community of knot.js together is warmly welcome. The knot.js site is on GitHub too, feel free to fork it and push your changes back. <a href="https://github.com/alexzhaosheng/knot_website">Knot.js site @GitHub</a> </span></p>
+
 
     <h3>Site</h3>
     <p><a href="https://jquery.com/">jQuery </a>is used everywhere</p>
     <p><a href="https://angularjs.org/">AngularJS</a> for performance comparison</p>
     <p>Syntax high light ability is from <a href="https://highlightjs.org/">highlight.js</a></p>
     <p>The hand-drawn style flowchart is created with <a href="http://yuml.me/">yUML</a></p>
-
 
 </section>
 

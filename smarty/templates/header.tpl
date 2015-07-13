@@ -32,7 +32,9 @@
             <ul class="nav-menu">
                 <li class="home"><a href="/">Home</a></li>
                 <li class="tutorial"><a href="/tutorial/">Tutorial</a></li>
+                <li class="documentation"><a href="https://github.com/alexzhaosheng/knot.js/wiki">Documentation</a></li>
                 <li class="forum"><a href="https://groups.google.com/forum/#!forum/knot_js">Forum</a></li>
+                <li class="Download"><a href="/download/latest">Download</a></li>
                 <li class="GitHub"><a href="https://github.com/alexzhaosheng/knot.js">GitHub</a></li>
             </ul>
         </div>

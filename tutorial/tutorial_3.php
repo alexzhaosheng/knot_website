@@ -35,7 +35,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <script>
         window.sourceModel = {};
@@ -61,7 +61,7 @@ $smarty->display("tutorialMenu.tpl");
     <h2>Event</h2>
 
     <p>Knot.js comes with built-in event support.</p>
-    <p>Event Access Point is often start with "<b>@</b>", and is bound to a function. You can use all of the DOM events in knot.js</p>
+    <p>Event Access Point often starts with "<b>@</b>", and is bound to a function. You can use all of the DOM events in knot.js</p>
     <p>Here's an example:</p>
     <script type="text/cbs" id="exampleCBS">
             #greetingExampleV5{
@@ -115,7 +115,7 @@ $smarty->display("tutorialMenu.tpl");
     Here's something you need to know about <i>Event</i>:
     </p>
     <ul>
-        <li><span>In the event handler, "this" point is set to the current data context</span></li>
+        <li><span>In the event handler, "this" point is set to the current <i>Data Context</i></span></li>
         <li><span>In the event handler, original event parameter and the source HTML element is passed in as arguments</span></li>
     </ul>
 </div>

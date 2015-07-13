@@ -49,7 +49,7 @@ require_once "comm.php";
 <!--    <script src="js/core/AddonHTMLAPProvider.js"></script>-->
 <!--    <script src="js/core/KnotInterface.js"></script>-->
 
-    <script src="debugger/knot.debug.js"></script>
+    <script src="js/debugger/knot.debug.js"></script>
 
     <script>
         Knot.ready(function(){
@@ -76,16 +76,15 @@ require_once "comm.php";
 
 <section class="content-column content">
     <h1>What?</h1>
-    <p><b>Knot.js</b> is an open source Javascript MVVM framework that targets to bring up the best data binding experience for the Web developers. If you are not familiar with MVVM, please follow this link:
+    <p><b>Knot.js</b> is an open source Javascript MVVM framework that targets to bring up the best data binding experience for Javascript developers. If you are not familiar with MVVM, please follow this link:
         <a href="https://en.wikipedia.org/wiki/Model_View_ViewModel"> MVVM@Wikipedia</a></p>
-
     <h1>Why?</h1>
     <ul>
         <li>
             <p>
                 <b>You don't want to mess up your HTML by the weird markups.</b>
                 <p>
-                    Knot.js comes with a brand new idea named <i>Cascading Binding Sheet</i> (CBS). The same as Cascading Style Sheet (CSS) to HTML styles, CBS extracts the binding logic from HTML code to
+                    Knot.js comes with a brand new idea named <i>Cascading Binding Sheet</i> (CBS).  Just like Cascading Style Sheet (CSS) to HTML styles, CBS extracts the binding logic from HTML code to
                     CBS script blocks or stand-along CBS files, and leaves you a perfect clean world.<br/>
                     <a target="fullImage" href="img/intro_1.png"><img class="introImage" src="img/intro_1.png"></a>
                 </p>
@@ -94,11 +93,9 @@ require_once "comm.php";
 
         <li>
             <p>
-                <b>You don't want to write more codes just because the framework forces you to do.</b>
+                <b>You don't want to write more code just because the framework forces you.</b>
                 <p>
-                    Knot.js comes with a fully automatic data awareness system. Just grab your data and throw it to knot.js, it will take care of the rests.<br/>
-                    Therefore you won't be forced to learn how to do the simple things in another odd way. Create the model and control logic in your favorite way,
-                    and they will just work with knot.js.  <br/>
+                    With the automatic data awareness system of knot.js, you don't have to write code in the odd style that framework requires. Just do it in your most familiar way and the simplest way, it always works with knot.js .<br/>
                     <a target="fullImage" href="img/intro_2.png"><img class="introImage" src="img/intro_2.png"></a>
                 </p>
             </p>
@@ -109,7 +106,7 @@ require_once "comm.php";
                 <b>You don't want fight with the framework when something goes wrong.</b>
                 <p>
                     Just like using DOM inspector to inspect CSS/DOM problems, you can use knot.js debugger to inspect the binding settings and real time statuses in almost the same manner.
-                    It turns knot.js into a white box. No more experiences of fighting with framework by tracing error through tons of complex alien source codes.
+                    It turns knot.js into a white box. No more experiences of fighting with framework by tracing error through tons of complex alien source code.
                     <a target="fullImage" href="img/intro_3.png"><img class="introImage" src="img/intro_3.png"></a>
                 </p>
             </p>
@@ -124,7 +121,7 @@ require_once "comm.php";
                             <p>Free. MIT license</p>
                         </li>
                         <li>
-                            <p>Tiny. 44kb and no dependency.</p>
+                            <p>Tiny. 45kb and no dependency.</p>
                         </li>
                         <li>
                             <p>Easy. Knot.js follows intuition in all aspects.</p>
@@ -133,7 +130,7 @@ require_once "comm.php";
                             <p>Fast. Knot.js has very good performance. It's almost as fast as using jQuery directly. Check this link for <a href="performance/"> the performance comparison between jQuery, knot.js and AngularJS</a> </p>
                         </li>
                         <li>
-                            <p>Feature-complete. Templates, data validation, multi-binding, single page application, embedded Javascript functions... Everything that you except for an UI binding framework is here.</p>
+                            <p>Feature-complete. Template, data validation, multi-binding, single page application, component, embedded Javascript function... Everything that you except for an UI binding framework is here.</p>
                         </li>
                         <li>
                             <p>Free (again). Interpose anytime you want, never loose control to the framework. Animations? special requirements? no problem!</p>
@@ -166,8 +163,8 @@ require_once "comm.php";
     <h1>A quick example</h1>
 
     <p>
-        Here is a simple example to give you some the first impression of knot.js. <br>
-        Start to learn more about <b>knot.js</b> with the <b><a href="tutorial/"> tutorials</a></b>
+        Here is a simple example to give you the first impression of knot.js. <br>
+        Or why not start to learn more about <b>knot.js</b> with the <b><a href="tutorial/"> tutorials</a></b> now?
     </p>
     <script type="text/cbs" class="exampleCBS">
         /*

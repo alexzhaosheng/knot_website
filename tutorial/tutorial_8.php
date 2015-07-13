@@ -35,7 +35,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <script>
         window.sourceModel = {};
@@ -63,33 +63,33 @@ $smarty->display("header.tpl");
         <ul>
             <li><span>Use <span class="inlineCode">Knot.getDataContext(htmlElement)</span> to get the current Data Context of the HTML element.</span></li>
             <li><span>You can also benefit from the data-awareness system directly. Just use <span class="inlineCode">Knot.monitorObject(object, path, callback)</span> to monitor the change of any object.
-                    You would find this is very useful in some case. Don't forget to stop monitoring the object by using <span class="inlineCode">Knot.stopMonitoringObject(object, path, callback)</span>
+                    You would find this is very useful sometimes. Don't forget to stop monitoring the object by using <span class="inlineCode">Knot.stopMonitoringObject(object, path, callback)</span>
                 </span></li>
             <li><span>Except monitoring the change of the object directly, you can also let knot.js monitor the change and tell you the changed properties by using
                     <span class="inlineCode">Knot.getPropertiesChangeRecords(object)</span>. Use <span class="inlineCode">Knot.clearPropertiesChangeRecords(object)</span> to clear the old changed records.</span></li>
-
+            <li><span>There's the list for the helper functions come with knot.js: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Helper-Functions">Helper Functions @GitHubWiki</a></span></li>
         </ul>
         <h3 id="traps">Traps</h3>
         <ul>
+            <li><span>One of the most significant difference between CSS and CBS is CSS is always applied dynamically while CBS is always applied statically.<br>
+                When you modify the DOM structure, CSS changes the styles but CBS will not change the binding accordingly. The reason of this design is to keep things as simple and clear as possible.<br>
+                If you want to add CBS dynamically, please use <span class="inlineCode">Knot.Advanced.loadPrivatePackage</span> to load <i>Private CBS Package</i></span></li>
             <li><span>Don't forget to remove the reference to the <i>Debugger</i> before release, it may bring serious performance problem!</span></li>
             <li><span>Due to some technique limits, data-awareness system <b>DOES NOT</b> fully work with array. Therefore please note:</span>
                 <ul>
-                    <li><span>If you change the data in array by using index, you need to tell knot.js by calling <span class="inlineCode">notifyChanged</span>. Here's the example:
+                    <li><span>If you change the data in array by using index, please use <span class="inlineCode">setValueAt</span> method on array. Here's the example:
                         <div class="codeSegment">
                             <pre><code class="javascript">var arr = ["a", "b", "c"];
-arr[1] = "x";
-//tell knot.js that the old item at 1 has been removed and a new item is inserted at 1.
-//you can also simply call arr.notifyChange(); but if you are working with a big array,
-//it may bring up performance problem.
-arr.notifyChanged([1],[1]);
-                        </div>
+// equivalent to arr[1] = "replace b". but this works with knot.js
+arr.setValueAt(1, "replace b");</div>
                     </li>
-                    <li><span>Similar problem happens when you set the length of the array, you have to tell knot.js the array has been modified.</span></li>
+                    <li><span>Please don't set the length of the array. Always uses the array functions (pop,push,shift,unshift,splice), you'll get the best performance in knot.js with them.
+                            If you want to empty an array by setting the length to 0, please use <span class="inlineCode">clear()</span> on the array object instead.</span></li>
                     <li><span>If you are modifying a property on the items of the array, knot.js will know it.</span></li>
                 </ul>
             </li>
-            <li><span>If your object has some properties that defined with "Object.defineProperty", I'm sorry they won't work with knot.js directly.
-                    You can set "configurable" to false when define the properties and use <span class="inlineCode">Knot.notifyObjectChanged(object, path, oldValue, newValue)</span>
+            <li><span>If your object has some properties that defined with "Object.defineProperty", I'm sorry they won't work with knot.js automatically.
+                    You need to set "configurable" to false when define the properties to prevent your definition won't be overwritten by knot.js, and call <span class="inlineCode">Knot.notifyObjectChanged(object, path, oldValue, newValue)</span>
                     to tell knot.js when it's changed.</li>
         </ul>
 

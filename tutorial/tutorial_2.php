@@ -35,7 +35,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <script>
         window.sourceModel = {};
@@ -124,18 +124,18 @@ $smarty->display("header.tpl");
 
         <ul>
             <li><span>Functions in knot.js always start with "@"</span></li>
-            <li><span>Functions can be embedded in CBS, and you are also able to reference the functions created in Javascript.</span></li>
+            <li><span>Functions can be embedded in CBS, or referenced from Javascript.</span></li>
             <li><span>For the functions embedded in CBS, it is actually parsed a function that with a "value" argument, which is the value you input into the pipe.</span></li>
-            <li><span>For the functions that referenced from javascript, knot.js gets the function with the given path of value from current <i> Context Object</i>. In this case, it get the pipe
-                    function from "window.greetingModelV3" by the path of value "getFormalTitle". If you want to get a function in global scope, just use absolute path of value (The path starts with "/").</span></li>
-            <li><span>In the pipe function, "this" pointer is set to the current Data Context.  For instance, we can rewrite the CBS in the example into this form:</span>
+            <li><span>For the functions that referenced from javascript, knot.js gets the function with the given path of value on current <i> Context Object</i>. In this case, it gets the pipe
+                    function from the <i>Data Context</i> which is "window.greetingModelV3" by the path of value "getFormalTitle". If you want to get a function in global scope, just use absolute path of value (The path starts with "/").</span></li>
+            <li><span>In the pipe function, "this" pointer is set to the current <i>Data Context</i>.  For instance, we can rewrite the CBS in the example into this form:</span>
                 <div class="codeSegment">
                     <pre><code class="css">.greetingExampleV3 .helloString{
     /* this is identical with "style.display: name> @{return value? "inline-block":"none";};"*/
     style.display: name> @{return this.name? "inline-block":"none";};
 }</code></pre>
                 </div>
-                <span>You would find that this is very convenient in many cases.</span>
+                <span>You would find that this is very convenient in many scenarios.</span>
             </li>
         </ul>
 
@@ -143,7 +143,7 @@ $smarty->display("header.tpl");
         <h3 id="validator">Validator And Binding to Error Status</h3>
         <p>Knot.js tries to keep things as simple as possible. Therefore you just need to simply throw an exception (Error) from the pipe when you find the input value is invalid, then you get your <i>Validator</i>! </p>
         <p>The exception thrown from pipe is set to the Error status of the <i>Access Point</i>, and can be bound with anything by the <b>Error Status Access Point</b>.</p>
-        <p><b>Error Status Access Point</b> of an <i>Access Point</i> can be accessed with a prefix "<b>!</b>" and the name of the Access Point. It stores the latest error status of the Access Point(the exception object), if there's no error, it's NULL.</p>
+        <p><b>Error Status Access Point</b> of an <i>Access Point</i> is accessed with a prefix "<b>!</b>" plus the name of the Access Point. It stores the latest error status (the exception object) of the <i>Access Point</i>, if there's no error, it's NULL.</p>
         <p>Here's an Example:</p>
 
         <script type="text/cbs"  id="validatorExampleCBS">
@@ -281,18 +281,18 @@ $smarty->display("header.tpl");
         <div id="validatorCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
         <ul>
-            <li><span>"*LEFT" and "#(#nameSection input)" is <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Target-Modifier"><i>Target Modifier</i></a>.</span>
+            <li><span>"*LEFT" and "#(#nameSection input)" is <i>Target Modifier</i>.</span>
                 <ul>
                     <li><span>"*LEFT" is used to reference the target on the left side of binding option.</span></li>
                     <li><span>"#(#nameSection input)" is used to access the HTML with CSS selector. </span></span></li>
                 </ul>
-                <span>For more information about <i>Target Modifier</i>, please follow <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Target-Modifier">this link</a>.</span>
+                <span>For more information about <i>Target Modifier</i>, please follow this link:  <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Target-Modifier">Target Modifier @GitHubWiki </a>.</span>
             </li>
             <li><span>As you see, pipes can be connected with each other.</span></li>
-            <li><span>Call Knot.getErrorStatusInformation without argument to validate data immediately and return the error status of the whole page. If you just want to get the
-                Error Status for apart of the HTML elements, just call Knot.getErrorStatusInformation with their common ancestor as parameter.</span></li>
+            <li><span>Call <span class="inlineCode">Knot.getErrorStatusInformation</span> without arguments to validate data immediately and return the error status of the whole page. If you just want to get the
+                Error Status for some of the HTML elements, just call  <span class="inlineCode">Knot.getErrorStatusInformation</span> with their common ancestor as parameter.</span></li>
         </ul>
-        <p class="specialHint">DO NOT forget return value in validator. It's is a pipe, a pipe always has output. And yes, you can use
+        <p class="specialHint">DO NOT forget to return value in validator. It's is a pipe, a pipe always has output. And yes, you can use
         one pipe for both validating and data converting purpose, it's up to you!</p>
         <p class="specialHint">You can also see the Error Status from the Debugger!</p>
 
@@ -302,7 +302,7 @@ $smarty->display("header.tpl");
             The input sources are connected with "&" and enclosed with "(" and ")".</p>
         <p>Let's learn more from example. We said we would say "Ms." to the ladies in "Greeting" example before, let do it now.</p>
         <p>This time, we need a gender select to get the gender information, then change the <span class="inlineCode">.helloString</span>. Note whenever gender or name is changed, <span>.helloString</span> must be updated,
-        this is the typical case that we need <i>Multi-Binding</i>.
+        this is the typical scenario that <i>Multi-Binding</i> is used.
             <img src="../img/tutorial/t2_1.png">
         </p>
         <script type="text/cbs" id="greetingExampleV4CBS">
@@ -365,6 +365,9 @@ $smarty->display("header.tpl");
 
         <div id="greetingExampleV4CodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
+        <ul>
+            <li><span>Of course, <i>N to 1 Pipe</i> can be embedded function too. All of the functions in knot.js can be embedded function.</span></li>
+        </ul>
     </div>
 </section>
 

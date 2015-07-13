@@ -35,7 +35,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <script>
         window.sourceModel = {};
@@ -59,10 +59,9 @@ $smarty->display("header.tpl");
 
     <div class="tutorialContent">
         <h2>Animation</h2>
-        <p>Knot.js comes with a series of <i>Access Point Events</i> which allows you interpose anytime to do something special, such as animation.
-           Knot.js works with almost all of the animation libraries the animation effect. </p>
+        <p>Knot.js comes with a series of <i>Access Point Events</i> which allow you interposing anytime to do something special such as animation.</p>
         <p>To know more about <i>Access Point Events</i>, please follow this link: <a target="gitHubWiki" href="https://github.com/alexzhaosheng/knot.js/wiki/Access-Point-Events">Access Point Events @GitHubWiki</a></p>
-        <p>Here's an example of using jQuery Animation effect. In this example, we'll bump the text when it's value is changed, and use animation to add new item to the list.
+        <p> Knot.js works with almost all of the animation libraries. In this example, we use jQuery Animation to bump the text when it's value is changed, and animate adding new item to the list.
         </p>
 
         <style type="text/css" id="animationCSS">
@@ -214,8 +213,8 @@ $smarty->display("header.tpl");
         <div id="animationExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
         <ul>
-            <li><span>There's a "ghost visual" is created for adding user animation. When the new user is added, it first hide the newly added HTML elemnt in the list, then create the ghost visual with knot.js template, then animate the ghost visual
-            from the editor to list. When animation is finished, it dispose the ghost visual and show the HTML element.</span></li>
+            <li><span>There's a "ghost visual" that is created for adding user animation. When the new user is added, it first hides the newly added HTML element in the list, creates the ghost visual with knot.js template, then animates the ghost visual
+            from the editor to the list. When animation is finished, it disposes the ghost visual and shows the HTML element.</span></li>
         </ul>
     </div>
 </section>

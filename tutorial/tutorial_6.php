@@ -35,7 +35,7 @@ require_once "../comm.php";
     <script src="../js/tabpage.js"></script>
     <script src="../js/sourceTab.js"></script>
 
-    <script src="../debugger/knot.debug.js"></script>
+    <script src="../js/debugger/knot.debug.js"></script>
 
     <link rel="stylesheet" href="css/tagEditor.css">
     <script type="text/cbs" src="cbs/tagEditor.pkg.cbs" id="tagEditorCBS"></script>
@@ -71,9 +71,9 @@ $smarty->display("tutorialMenu.tpl");
 
 <div class="tutorialContent">
     <h2>Component</h2>
-    <p>Knot.js providers a simple while flexible way to build components. You can use CBS or other knot.js component to create your own component.</p>
+    <p>Knot.js providers a simple while flexible way to build components. You can use CBS or the other knot.js components to create your own component.</p>
     <p>A component can be applied by adding <span class="inlineCode">knot-component</span> attribute with the component name to the container of the component. </p>
-    <p class="specialHint"> You've already seen a knot.js component already. The tab pages that show the codes on this site are from a component named "SourceTabPage",
+    <p class="specialHint"> You've already seen a knot.js component. The tab pages that show the code on this site are from a component named "SourceTabPage",
         which uses another component named "TabPage" to show the tab pages. The reason you can't see them from the <i>Debugger</i> is because they are marked with "knot-debugger-ignore" to have the Debugger skipping them.</p>
     <p>
         Here are the steps to implement a knot.js component:
@@ -104,7 +104,7 @@ function dispose(){}
                 </div>
             </li>
             <li>
-                <span>Register the factory method of component to knot.js.</span>
+                <span>Register the factory method of component to knot.js. If you are not familiar with factory method, please follow this link for more information: <a target="WikiPedia" href="https://en.wikipedia.org/wiki/Factory_method_pattern">Factory method pattern @WikiPedia</a></span>
                 <div class="codeSegment">
                     <pre><code class="javascript">global.Knot.Advanced.registerComponent(
     "[COMPONENT_NAME]",
@@ -116,7 +116,7 @@ function dispose(){}
             </li>
             <li>
                 <span>Use <i>Private CBS Package</i> to store HTML and CBS resources that used by the component.
-                    <i>Private CBS Package</i> always starts with <span class="inlineCode">$private</span> as it's first line, and always comes with HTML and CBS.
+                    <i>Private CBS Package</i> always starts with <span class="inlineCode">$private</span> in it's first line, and always comes with HTML and CBS.
                     HTML is enclosed with <span class="inlineCode">&lt;&lt;{{</span> and <span class="inlineCode">}}&gt;&gt;</span>. The CBS in the <i>Private CBS Package</i>
                     is only applied to the HTML in that <i>Private CBS Package</i>.
                 </span>
@@ -124,8 +124,8 @@ function dispose(){}
         </ul>
     </p>
 
-    <p>Again, let's learn from the example. This time we will create a tag edit component. this component accept a tag string (tags separated with ","), and provider and UI for editing.
-     This component also provide an <i>Access Point</i> to allow user modifying it's color by CBS. </p>
+    <p>Again, let's learn from the example. This time we will create a tag edit component. this component accept a tag string (tags separated with ","), and generate UI for editing.
+     This component also provide an <i>Access Point</i> to allow user modifying the tag's color by CBS. </p>
 
     <div class="knot_example" id="tagEditorExampleHTML">
         <h2>Knot.js example - Tag editor</h2>
@@ -161,15 +161,15 @@ function dispose(){}
     <div id="tagEditorExampleCodePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
 
     <ul>
-        <li><span>When component is bound with CBS to application's models, it's actually bound to the component object though the component interface methods.
+        <li><span>When component is bound by CBS to application's models, it's actually bound to the component object though the component interface methods.
             Then component object update it's relevant values that have been bound with UI by the component's <i>Private CBS Package</i>.</span>
             <img src="../img/tutorial/t6_1.png">
         </li>
         <li>
-            <span>The HTML resources in the <i>Private CBS Package</i> must be template. And can only accessed by the template id.</span>
+            <span>The HTML resources in the <i>Private CBS Package</i> must be template. And can only be accessed by the template id.</span>
         </li>
         <li>
-            <span>What if user just want to set a fixed color other than bind the color to something? Easy, just use '' to quote the fixed value like this example:</span>
+            <span>What if the user wants to set a fixed color other than binding the color to something? Easy, just use '' to quote the fixed value like this example:</span>
             <div class="codeSegment">
                         <pre><code class="css">#tagEditorContainer{
     tags: /tags;
