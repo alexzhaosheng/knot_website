@@ -73,7 +73,7 @@
     $(window).resize(updateSize);
     $(document).ready(function(){
         updateSize();
-        $(".nav-menu>." + "{$page}").addClass("selected");
+        $(".nav-menu ." + "{$page}").addClass("selected");
     });
     $(".navMenuButton").click(function(){
         $(".nav-menu").toggle();

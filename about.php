@@ -77,6 +77,8 @@ $smarty->display("header.tpl");
         <p><span>If you have some idea about knot.js, just fork it.</span></p>
         <p><span>Join me to build the site/community of knot.js together is warmly welcome. The knot.js site is on GitHub too, feel free to fork it and push your changes back. <a href="https://github.com/alexzhaosheng/knot_website">Knot.js site @GitHub</a> </span></p>
 
+    <h3>Thanks</h3>
+    <p><a href="http://www.websitegarden.com.au/">Website Garden</a> provided SEO suggestions</p>
 
     <h3>Site</h3>
     <p><a href="https://jquery.com/">jQuery </a>is used everywhere</p>
