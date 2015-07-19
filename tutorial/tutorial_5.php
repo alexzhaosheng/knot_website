@@ -6,11 +6,12 @@ require_once "../comm.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Knot.js</title>
+    <title>Tutorial 5: Single Page App - Knot.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Javascript bind framework knot.js help you." />
-    <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Knot.js is an open source Javascript framework that targets to provide the best biding experience to frontend developers. It comes with CBS support to give you the best maintainability." />
+    <meta name="keywords" content="javascript,mvvm,framework,data binding,knot.js,CBS,angular.js,knockout.js,ember.js,tutorial,single page app,SPA,hash" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />
@@ -111,7 +112,7 @@ $smarty->display("header.tpl");
         <ul>
             <li><span>The basic idea of the example is to bind the current selected category and book to the hash status of the window. When user select a category/book, it simply changes the hash status of window,
                 then knot.js will change the selected category and book accordingly. Here's the flow chart (click to view it in bigger size):</span>
-                <p><a target="flowChart" href="/img/tutorial/t5_1.png" title="Click to view the original picture."> <img src="/img/tutorial/t5_1.png" style="width: 700px"></a></p>
+                <p><a target="flowChart" href="/img/tutorial/t5_1.png" title="Click to view the original picture."> <img  class="inPageImage" src="/img/tutorial/t5_1.png"></a></p>
             </li>
             <li><span>The data of the books is loaded from this <a target="_blank" href="rsc/bookstore.json">stand along JSON file</a> to simulate loading data from server.</span></li>
             <li><span>The hash status binding works with browser bookmarks and history buttons (bark, forward).</span></li>

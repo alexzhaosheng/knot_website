@@ -29,13 +29,18 @@
         </div>
 
         <div class="right">
+            <button class="navMenuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
-                <li class="home"><a href="/">Home</a></li>
-                <li class="tutorial"><a href="/tutorial/">Tutorial</a></li>
-                <li class="documentation"><a href="https://github.com/alexzhaosheng/knot.js/wiki">Documentation</a></li>
-                <li class="forum"><a href="https://groups.google.com/forum/#!forum/knot_js">Forum</a></li>
-                <li class="Download"><a href="/download/latest">Download</a></li>
-                <li class="GitHub"><a href="https://github.com/alexzhaosheng/knot.js">GitHub</a></li>
+                <a href="/"><li class="home">Home</li></a>
+                <a href="/tutorial/"><li class="tutorial">Tutorial</li></a>
+                <a href="https://github.com/alexzhaosheng/knot.js/wiki"><li class="documentation">Documentation</li></a>
+                <a href="https://groups.google.com/forum/#!forum/knot_js"><li class="forum">Forum</li></a>
+                <a href="/download/latest"><li class="Download">Download</li></a>
+                <a href="https://github.com/alexzhaosheng/knot.js"><li class="GitHub">GitHub</li></a>
             </ul>
         </div>
     </div>
@@ -59,11 +64,18 @@
         });
 
         $("#knotAndString").show();
+
+        if($("body").width() > 720)
+            $(".nav-menu").show();
+        else
+            $(".nav-menu").hide();
     }
     $(window).resize(updateSize);
     $(document).ready(function(){
         updateSize();
-
         $(".nav-menu>." + "{$page}").addClass("selected");
+    });
+    $(".navMenuButton").click(function(){
+        $(".nav-menu").toggle();
     });
 </script>

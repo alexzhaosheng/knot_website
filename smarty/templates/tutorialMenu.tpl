@@ -1,3 +1,7 @@
+<div class="tutorialMenuExpander">
+    <span> Tutorials </span>
+    <div class="arrow"></div>
+</div>
 <div class="tutorialMenu">
     <h3>Tutorials</h3>
     <ul>
@@ -38,26 +42,43 @@
 <script>
     var curPage = ".tutorial_{$page}";
     $(curPage + ">p").addClass("selected");
-    $(document).ready(function(){
-        var startTop = $(".tutorialMenu").offset().top;
-        $(window).scroll(function(){
-            var curScrollTop = $(window).scrollTop();
-            $(".tutorialMenu").css("marginTop", Math.max(0, curScrollTop - startTop + 5));
+    function updateMenu(){
+        if($("body").width() < 720){
+            return;
+        }
+        var startTop = 185;
+        var curScrollTop = $(window).scrollTop();
+        $(".tutorialMenu").css("top", Math.max(0, startTop - curScrollTop)+5);
 
-            var curList = $(curPage + ">ul>li");
-            var curItem;
-            for(var i=0; i< curList.length; i++){
-                var id = curList.eq(i).find("a").attr("href").split("#")[1];
-                if($("#"+id).offset().top - curScrollTop < $(window).innerHeight()/5*2){
-                   curItem = curList.eq(i);
-                }
-                else{
-                    break;
-                }
+        var curList = $(curPage + ">ul>li");
+        var curItem;
+        for(var i=0; i< curList.length; i++){
+            var id = curList.eq(i).find("a").attr("href").split("#")[1];
+            if($("#"+id).offset().top - curScrollTop < $(window).innerHeight()/5*2){
+                curItem = curList.eq(i);
             }
-            curList.find("p").removeClass("inReading");
-            if(curItem)
-                curItem.find("p").addClass("inReading");
+            else{
+                break;
+            }
+        }
+        curList.find("p").removeClass("inReading");
+        if(curItem)
+            curItem.find("p").addClass("inReading");
+    }
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            updateMenu();
+        });
+        updateMenu();
+
+        $(".tutorialMenuExpander").click(function(){
+            $(".tutorialMenu").css("top", $(".tutorialMenuExpander").offset().top + 32) .toggle();
+        });
+        $(".tutorialMenu a").click(function(evt){
+            if($("body").width() < 720){
+               $(".tutorialMenu").hide();
+            }
         });
     });
+
 </script>

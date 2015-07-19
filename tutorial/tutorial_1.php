@@ -6,11 +6,12 @@ require_once "../comm.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Knot.js</title>
+    <title>Tutorial 1: CBS Basic, Debugger - Knot.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Javascript bind framework knot.js help you." />
-    <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Knot.js is an open source Javascript framework that targets to provide the best biding experience to frontend developers. It comes with CBS support to give you the best maintainability." />
+    <meta name="keywords" content="javascript,mvvm,framework,data binding,knot.js,CBS,angular.js,knockout.js,ember.js,tutorial,debugger" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />
@@ -68,7 +69,9 @@ $smarty->display("tutorialMenu.tpl");
         <p>
             CBS is not only looks like CSS, it works almost in the same manner as CSS.<br>
             Here's a typical CBS:<br>
-            <img src="../img/tutorial/t1_2.png">
+            <a target="_blank" href="../img/tutorial/t1_2.png">
+            <img class="inPageImage" src="../img/tutorial/t1_2.png">
+            </a>
             <ul>
                 <li><span>To enable CBS in your page, you just need to add the line below to reference knot.js package:</span>
                     <div class="codeSegment">
@@ -166,7 +169,7 @@ $smarty->display("tutorialMenu.tpl");
         </div>
         <br/><br/>
         <p> In this example, the input box is bound to the "model.name" , and then "model.name"  is tied up to the text content of a &lt;b&gt; tag(".helloString") to show the value.</p>
-        <img src="/img/tutorial/t1_1.png"><br/><br/>
+        <a target="_blank" href="/img/tutorial/t1_1.png"> <img class="inPageImage" src="/img/tutorial/t1_1.png"></a><br/><br/>
 
         <p>The magic is done by the code below, please check the comments to learn more:</p>
         <div id="codePages" knot-debugger-ignore  knot-component="SourceTabPage"></div>
@@ -228,7 +231,7 @@ $smarty->display("tutorialMenu.tpl");
             Click on the <img src="../js/debugger/img/debugger.png" style="height:16px;width: 16px"> button in the bottom right of the Window to bring up the <i>Debugger</i> window.
             If it doesn't work, please check you popup blocker setting.<br>
             The image blow explains how to use the <i>Debugger</i>
-            <img src="../img/tutorial/t1_3.png">
+            <a target="_blank" href="../img/tutorial/t1_3.png"> <img class="inPageImage" src="../img/tutorial/t1_3.png"></a>
 
             <p>To activate the <i>Debugger</i> in your project, just add this line to the head of the page:</p>
             <div class="codeSegment">

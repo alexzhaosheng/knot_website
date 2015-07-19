@@ -6,11 +6,12 @@ require_once "../comm.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Knot.js</title>
+    <title>Tutorial 3: Event - Knot.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Javascript bind framework knot.js help you." />
-    <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Knot.js is an open source Javascript framework that targets to provide the best biding experience to frontend developers. It comes with CBS support to give you the best maintainability." />
+    <meta name="keywords" content="javascript,mvvm,framework,data binding,knot.js,CBS,angular.js,knockout.js,ember.js,tutorial,event" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />

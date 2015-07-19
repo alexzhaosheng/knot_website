@@ -6,11 +6,12 @@ require_once "../comm.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Knot.js</title>
+    <title>Tutorial 2: Pipe (Converter, Validator and Multi-biding) - Knot.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Javascript bind framework knot.js help you." />
-    <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Knot.js is an open source Javascript framework that targets to provide the best biding experience to frontend developers. It comes with CBS support to give you the best maintainability." />
+    <meta name="keywords" content="javascript,mvvm,framework,data binding,knot.js,CBS,angular.js,knockout.js,ember.js,tutorial,converter,validator,multi-binding" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />
@@ -303,7 +304,7 @@ $smarty->display("header.tpl");
         <p>Let's learn more from example. We said we would say "Ms." to the ladies in "Greeting" example before, let do it now.</p>
         <p>This time, we need a gender select to get the gender information, then change the <span class="inlineCode">.helloString</span>. Note whenever gender or name is changed, <span>.helloString</span> must be updated,
         this is the typical scenario that <i>Multi-Binding</i> is used.
-            <img src="../img/tutorial/t2_1.png">
+            <a target="_blank" href="../img/tutorial/t2_1.png"><img class="inPageImage" src="../img/tutorial/t2_1.png"></a>
         </p>
         <script type="text/cbs" id="greetingExampleV4CBS">
 

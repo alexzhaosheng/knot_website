@@ -6,11 +6,12 @@ require_once "comm.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Knot.js</title>
+    <title>Javascript MVVM Framework Knot.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Javascript bind framework knot.js help you." />
-    <meta name="keywords" content="javascript, mvvm, framework, data binding, angular.js, knotout.js, ember.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Knot.js is an open source Javascript framework that targets to provide the best biding experience to frontend developers. It comes with CBS support to give you the best maintainability." />
+    <meta name="keywords" content="javascript,mvvm,framework,data binding,knot.js,CBS,angular.js,knockout.js,ember.js" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="knot.js" />
@@ -86,7 +87,9 @@ require_once "comm.php";
                 <p>
                     Knot.js comes with a brand new idea named <i>Cascading Binding Sheet</i> (CBS).  Just like Cascading Style Sheet (CSS) to HTML styles, CBS extracts the binding logic from HTML code to
                     CBS script blocks or stand-along CBS files, and leaves you a perfect clean world.<br/>
-                    <a target="fullImage" href="img/intro_1.png"><img class="introImage" src="img/intro_1.png"></a>
+                </p>
+                <p class="imageComment">The left is the code fragment of AngularJS, the right is how you do the same thing with knot.js <br>
+                    <a target="fullImage" href="img/intro_1.png"><img alt="Comparing the code style between AngularJS and knot.js" class="inPageImage" src="img/intro_1.png"></a>
                 </p>
             </p>
         </li>
@@ -96,7 +99,10 @@ require_once "comm.php";
                 <b>You don't want to write more code just because the framework forces you.</b>
                 <p>
                     With the automatic data awareness system of knot.js, you don't have to write code in the odd style that framework requires. Just do it in your most familiar way and the simplest way, it always works with knot.js .<br/>
-                    <a target="fullImage" href="img/intro_2.png"><img class="introImage" src="img/intro_2.png"></a>
+                    (The left is the code fragment of AngularJS, the right is how you do the same thing with knot.js )<br/>
+                </p>
+                <p class="imageComment">The left is the code fragment of AngularJS, the right is how you do the same thing with knot.js <br>
+                    <a target="fullImage" href="img/intro_2.png"><img alt="Comparing the code style between AngularJS and knot.js" class="inPageImage" src="img/intro_2.png"></a>
                 </p>
             </p>
         </li>
@@ -107,7 +113,7 @@ require_once "comm.php";
                 <p>
                     Just like using DOM inspector to inspect CSS/DOM problems, you can use knot.js debugger to inspect the binding settings and real time statuses in almost the same manner.
                     It turns knot.js into a white box. No more experiences of fighting with framework by tracing error through tons of complex alien source code.
-                    <a target="fullImage" href="img/intro_3.png"><img class="introImage" src="img/intro_3.png"></a>
+                    <a target="fullImage" href="img/intro_3.png"><img alt="Knot.js debugger" class="inPageImage" src="img/intro_3.png"></a>
                 </p>
             </p>
         </li>
