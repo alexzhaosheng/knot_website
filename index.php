@@ -99,7 +99,6 @@ require_once "comm.php";
                 <b>You don't want to write more code just because the framework forces you.</b>
                 <p>
                     With the automatic data awareness system of knot.js, you don't have to write code in the odd style that framework requires. Just do it in your most familiar way and the simplest way, it always works with knot.js .<br/>
-                    (The left is the code fragment of AngularJS, the right is how you do the same thing with knot.js )<br/>
                 </p>
                 <p class="imageComment">The left is the code fragment of AngularJS, the right is how you do the same thing with knot.js <br>
                     <a target="fullImage" href="img/intro_2.png"><img alt="Comparing the code style between AngularJS and knot.js" class="inPageImage" src="img/intro_2.png"></a>
